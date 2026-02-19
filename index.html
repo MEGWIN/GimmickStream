@@ -560,6 +560,82 @@
       color: var(--text-muted);
     }
 
+    /* ===== Dreams ===== */
+    .dreams {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(255, 107, 157, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(200, 168, 249, 0.07) 0%, transparent 50%);
+      overflow: hidden;
+    }
+
+    .dreams-lead {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .dreams-lead strong {
+      color: var(--pink);
+    }
+
+    .dream-track {
+      display: flex;
+      gap: 14px;
+      animation: scrollDreams 20s linear infinite;
+      width: max-content;
+      margin-bottom: 14px;
+    }
+
+    .dream-track.reverse {
+      animation: scrollDreamsReverse 22s linear infinite;
+    }
+
+    @keyframes scrollDreams {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes scrollDreamsReverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .dream-chip {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: var(--card);
+      border-radius: 50px;
+      box-shadow: 0 2px 14px var(--shadow);
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--text);
+    }
+
+    .dream-chip .dream-emoji {
+      font-size: 1.2rem;
+    }
+
+    .dreams-msg {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, var(--pink-pale), var(--lavender-light));
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1.8;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dreams-msg .pink { color: var(--pink); }
+
     /* ===== CTA ===== */
     .cta {
       text-align: center;
@@ -849,6 +925,54 @@
           <div class="label">学生・副業OK</div>
           <div class="desc">両立サポート</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DREAMS ===== -->
+  <section class="dreams">
+    <div class="reveal">
+      <span class="section-label">FUTURE</span>
+      <h2 class="section-title">ここをきっかけに<br><span class="pink">あなたの夢</span>を叶えたい</h2>
+      <p class="dreams-lead">配信で身につく<strong>発信力・ファン・つながり</strong>は、<br>どんな夢にも活きる最強のスキルです。</p>
+
+      <!-- Scrolling dream chips - row 1 -->
+      <div class="dream-track">
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3a4;</span>アイドル</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3ae;</span>プロゲーマー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f370;</span>お店を開く</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4e3;</span>集客・PR</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f680;</span>起業</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4bc;</span>就職に有利</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3db;&#xfe0f;</span>政治家</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3a4;</span>アイドル</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3ae;</span>プロゲーマー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f370;</span>お店を開く</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4e3;</span>集客・PR</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f680;</span>起業</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4bc;</span>就職に有利</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3db;&#xfe0f;</span>政治家</div>
+      </div>
+
+      <!-- Scrolling dream chips - row 2 (reverse) -->
+      <div class="dream-track reverse">
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4f8;</span>インフルエンサー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2702;&#xfe0f;</span>美容師・サロン</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3b6;</span>歌手・音楽活動</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4d6;</span>作家・クリエイター</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2708;&#xfe0f;</span>海外進出</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3c3;&#x200d;&#x2640;&#xfe0f;</span>フィットネス</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4f8;</span>インフルエンサー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2702;&#xfe0f;</span>美容師・サロン</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3b6;</span>歌手・音楽活動</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4d6;</span>作家・クリエイター</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2708;&#xfe0f;</span>海外進出</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3c3;&#x200d;&#x2640;&#xfe0f;</span>フィットネス</div>
+      </div>
+
+      <div class="dreams-msg">
+        配信は、<span class="pink">どんな夢への近道</span>にもなる。<br>
+        私たちが全力であなたの<br>第一歩を応援します。
       </div>
     </div>
   </section>
