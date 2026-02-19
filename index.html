@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ギミックストリーム | 新人ライバー募集</title>
+  <meta name="description" content="技術（ギミック）で、退屈な配信をパーティーに変える。エンジニア集団がバックアップする次世代ライバー事務所。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --neon-pink: #FF2D78;
+      --electric-blue: #00D4FF;
+      --neon-yellow: #FFE600;
+      --dark-bg: #0A0A1A;
+      --dark-card: #12122A;
+      --text-white: #F0F0F0;
+      --text-muted: #A0A0C0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-white);
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+
+    /* ===== Particles Background ===== */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: float linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px 40px;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(255, 45, 120, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 80%, rgba(255, 230, 0, 0.08) 0%, transparent 50%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      border: 1px solid var(--electric-blue);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: var(--electric-blue);
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s ease-out 0.1s both;
+    }
+
+    .hero-logo .accent {
+      background: linear-gradient(135deg, var(--neon-pink), var(--electric-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 340px;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, var(--neon-pink), #FF6B35);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 30px rgba(255, 45, 120, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 40px rgba(255, 45, 120, 0.6);
+    }
+
+    .scroll-hint {
+      margin-top: 48px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint span {
+      display: block;
+      font-size: 1.2rem;
+      margin-top: 4px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Section Common ===== */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 64px 20px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--electric-blue);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+
+    .section-title .pink { color: var(--neon-pink); }
+    .section-title .blue { color: var(--electric-blue); }
+    .section-title .yellow { color: var(--neon-yellow); }
+
+    /* ===== Pain Points ===== */
+    .pain {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 45, 120, 0.08) 0%, transparent 60%);
+    }
+
+    .pain-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .pain-list li {
+      position: relative;
+      padding: 16px 16px 16px 44px;
+      margin-bottom: 12px;
+      background: var(--dark-card);
+      border-radius: 12px;
+      border-left: 3px solid var(--neon-pink);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .pain-list li::before {
+      content: '😔';
+      position: absolute;
+      left: 14px;
+      top: 16px;
+      font-size: 1rem;
+    }
+
+    .pain-answer {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 45, 120, 0.1));
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .pain-answer .em {
+      color: var(--neon-yellow);
+      font-size: 1.1rem;
+    }
+
+    /* ===== Strengths ===== */
+    .strengths {
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, rgba(255, 230, 0, 0.06) 0%, transparent 50%);
+    }
+
+    .strength-card {
+      background: var(--dark-card);
+      border-radius: 20px;
+      padding: 32px 24px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s;
+    }
+
+    .strength-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .strength-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .strength-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--electric-blue);
+      margin-bottom: 8px;
+    }
+
+    .strength-card h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .strength-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .strength-card .stat {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 8px 20px;
+      background: linear-gradient(135deg, rgba(255, 45, 120, 0.2), rgba(0, 212, 255, 0.2));
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--neon-yellow);
+    }
+
+    /* ===== Style / Freedom ===== */
+    .freedom {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 230, 0, 0.08) 0%, transparent 50%);
+    }
+
+    .freedom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .freedom-item {
+      background: var(--dark-card);
+      border-radius: 16px;
+      padding: 24px 12px;
+      text-align: center;
+    }
+
+    .freedom-item .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .freedom-item .label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .freedom-item .desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== CTA Section ===== */
+    .cta {
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 45, 120, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+    }
+
+    .cta h2 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .cta h2 .gradient {
+      background: linear-gradient(135deg, var(--neon-pink), var(--electric-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .btn-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: #06C755;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(6, 199, 85, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-line:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(6, 199, 85, 0.5);
+    }
+
+    .btn-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: transparent;
+      color: var(--electric-blue);
+      font-size: 1rem;
+      font-weight: 700;
+      border: 2px solid var(--electric-blue);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-form:hover {
+      background: rgba(0, 212, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .cta-note {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer .footer-logo {
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--electric-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== Scroll Animations ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 480px) {
+      .hero h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.7rem; }
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero-sub { font-size: 1rem; max-width: 480px; }
+      section { padding: 80px 40px; }
+      .section-title { font-size: 2rem; }
+      .strength-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+      .freedom-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 600px;
+        margin: 24px auto 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-badge">NEW LIVER WANTED</div>
+    <div class="hero-logo"><span class="accent">GIMMICK STREAM</span></div>
+    <h1>その配信、<br><span class="highlight">魔法（ギミック）</span>で<br>バズらせない？</h1>
+    <p class="hero-sub">同時接続10,000人のノウハウ × 独自開発プログラムで、<br>あなたの夢をブーストする。</p>
+    <a href="#apply" class="hero-cta">今すぐ応募する</a>
+    <div class="scroll-hint">scroll<span>&#8595;</span></div>
+  </section>
+
+  <!-- ===== PAIN POINTS ===== -->
+  <section class="pain">
+    <div class="reveal">
+      <span class="section-label">PROBLEM</span>
+      <h2 class="section-title">こんな悩み、<br><span class="pink">ありませんか？</span></h2>
+      <ul class="pain-list">
+        <li>一生懸命喋っているのに、<br>リスナーがすぐに離れてしまう…</li>
+        <li>機材や設定が難しくて、<br>やりたいことができない…</li>
+        <li>他のライバーと同じことばかりで、<br>個性を出せない…</li>
+      </ul>
+      <div class="pain-answer">
+        ギミックストリームなら<br>
+        <span class="em">プログラム × 電子工作</span>で<br>
+        「誰も見たことがない配信」が作れます。
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRENGTHS ===== -->
+  <section class="strengths">
+    <div class="reveal">
+      <span class="section-label">WHY US</span>
+      <h2 class="section-title"><span class="blue">3つの強み</span>で<br>あなたをサポート</h2>
+
+      <div class="strength-cards">
+        <!-- Strength 1 -->
+        <div class="strength-card">
+          <div class="strength-icon">🎤</div>
+          <div class="strength-num">STRENGTH 01</div>
+          <h3>圧倒的な実績を持つ<br>プロが直接指導</h3>
+          <p>同時接続1,000人は当たり前。最大10,000人を集客したプロが、声の出し方から視聴者を離さないトーク術まで徹底伝授します。</p>
+          <span class="stat">最大同時接続 10,000人</span>
+        </div>
+
+        <!-- Strength 2 -->
+        <div class="strength-card">
+          <div class="strength-icon">💻</div>
+          <div class="strength-num">STRENGTH 02</div>
+          <h3>オリジナルツールを<br>まるごとプレゼント</h3>
+          <p>Python・HTML・OBSを駆使した独自ツールをそのまま譲渡。コードが書けなくても「視聴者が参加できる仕掛け」が手に入ります。</p>
+          <span class="stat">開発ツール 無料譲渡</span>
+        </div>
+
+        <!-- Strength 3 -->
+        <div class="strength-card">
+          <div class="strength-icon">🔧</div>
+          <div class="strength-num">STRENGTH 03</div>
+          <h3>電子工作で配信を<br>リアルに拡張</h3>
+          <p>水鉄砲などの物理デバイスと配信を連動。ハンダ付けも設定も不要、あなたの部屋を最強の配信スタジオにセットアップします。</p>
+          <span class="stat">セットアップ 完全サポート</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FREEDOM ===== -->
+  <section class="freedom">
+    <div class="reveal">
+      <span class="section-label">STYLE</span>
+      <h2 class="section-title"><span class="yellow">あなたのペース</span>で<br>活動できる</h2>
+      <p style="font-size:0.9rem; color:var(--text-muted);">ガッツリ週5でトップを目指すも、<br>週1回1時間から始めるも自由。</p>
+
+      <div class="freedom-grid">
+        <div class="freedom-item">
+          <div class="icon">🔥</div>
+          <div class="label">がっつり型</div>
+          <div class="desc">週5日 / 5時間</div>
+        </div>
+        <div class="freedom-item">
+          <div class="icon">⚡</div>
+          <div class="label">バランス型</div>
+          <div class="desc">週3日 / 3時間</div>
+        </div>
+        <div class="freedom-item">
+          <div class="icon">🌙</div>
+          <div class="label">マイペース型</div>
+          <div class="desc">週1日 / 1時間</div>
+        </div>
+        <div class="freedom-item">
+          <div class="icon">🎓</div>
+          <div class="label">学生・副業OK</div>
+          <div class="desc">両立サポート</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="apply">
+    <div class="reveal">
+      <h2>まずは<span class="gradient">気軽に相談</span>から！</h2>
+      <p class="cta-desc">あなたの個性をどうギミックにするか、<br>一緒に話しましょう。</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-line">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで相談する
+        </a>
+        <a href="#" class="btn-form">
+          📝 応募フォームはこちら
+        </a>
+      </div>
+      <p class="cta-note">※ 相談だけでもOK！お気軽にどうぞ。</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-logo">GIMMICK STREAM</div>
+    <p>&copy; 2026 ギミックストリーム All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Particles
+    (function() {
+      const container = document.getElementById('particles');
+      const colors = ['#FF2D78', '#00D4FF', '#FFE600', '#FF6B35', '#A855F7'];
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 6 + 2;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(p);
+      }
+    })();
+
+    // Scroll Reveal
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
