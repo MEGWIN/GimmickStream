@@ -146,19 +146,28 @@
     }
 
     .hero-logo {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
       margin-bottom: 8px;
       animation: fadeInUp 0.8s ease-out 0.05s both;
-      color: var(--text-muted);
     }
 
     .hero-logo .accent {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
       background: linear-gradient(135deg, var(--pink), var(--lavender));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    .hero-logo .sub {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.3em;
+      margin-top: 2px;
     }
 
     .hero-audition-num {
@@ -843,6 +852,24 @@
       background-clip: text;
     }
 
+    footer .footer-about {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--lavender);
+      text-decoration: none;
+      border: 1.5px solid var(--lavender);
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    footer .footer-about:hover {
+      background: var(--lavender);
+      color: #fff;
+    }
+
     /* ===== Scroll Animations ===== */
     .reveal {
       opacity: 0;
@@ -900,7 +927,7 @@
     </div>
 
     <div class="hero-badge">&#x2728; AUDITION ENTRY START &#x2728;</div>
-    <div class="hero-logo"><span class="accent">GIMMICK STREAM</span></div>
+    <div class="hero-logo"><span class="accent">GIMMICK STREAM</span><span class="sub">ぎみっくすとりーむ</span></div>
     <div class="hero-audition-num">&#x2014; 第1回オーディション &#x2014;</div>
     <h1><span class="highlight">次世代のスター</span>は<br>あなたかもしれない</h1>
     <p class="hero-sub">プログラム &#xd7; 電子工作で配信を変える事務所が、一緒に夢を追う仲間を探しています。</p>
@@ -1118,6 +1145,7 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-logo">GIMMICK STREAM</div>
+    <a href="about.html" class="footer-about">Gimmick Stream とは？</a>
     <p>&copy; 2026 ギミックストリーム All Rights Reserved.</p>
   </footer>
 

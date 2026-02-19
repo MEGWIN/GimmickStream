@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gimmick Streamとは | ギミックストリーム</title>
+  <meta name="description" content="技術（ギミック）で、退屈な配信をパーティーに変える。エンジニア集団がバックアップする次世代ライバー事務所。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --pink: #FF6B9D;
+      --pink-light: #FFB8D0;
+      --pink-pale: #FFF0F5;
+      --lavender: #C8A8F9;
+      --lavender-light: #EDE3FF;
+      --mint: #7FDFD4;
+      --mint-light: #D4F5EF;
+      --yellow: #FFE066;
+      --yellow-light: #FFF8D6;
+      --bg: #FFFAFD;
+      --card: #FFFFFF;
+      --text: #3D2B4E;
+      --text-muted: #8E7AA0;
+      --shadow: rgba(200, 168, 249, 0.15);
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.9;
+    }
+
+    /* ===== Sparkles ===== */
+    .sparkles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      animation: twinkle ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 0.8; transform: scale(1.2); }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      min-height: 60dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px 40px;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(255, 107, 157, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(200, 168, 249, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(127, 223, 212, 0.08) 0%, transparent 50%);
+    }
+
+    .hero-logo {
+      margin-bottom: 8px;
+      animation: fadeInUp 0.8s ease-out 0.05s both;
+    }
+
+    .hero-logo .accent {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-logo .sub {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.3em;
+      margin-top: 2px;
+    }
+
+    .hero h1 {
+      font-size: 1.7rem;
+      font-weight: 900;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      max-width: 340px;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ===== Section Common ===== */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--lavender);
+      background: var(--lavender-light);
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .section-title .pink { color: var(--pink); }
+    .section-title .lavender { color: var(--lavender); }
+    .section-title .mint { color: var(--mint); }
+
+    /* ===== Pain Points ===== */
+    .pain {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 107, 157, 0.06) 0%, transparent 50%);
+    }
+
+    .pain-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .pain-list li {
+      position: relative;
+      padding: 16px 16px 16px 20px;
+      margin-bottom: 10px;
+      background: var(--card);
+      border-radius: 16px;
+      border-left: 4px solid var(--pink-light);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .pain-answer {
+      background: linear-gradient(135deg, var(--pink-pale), var(--lavender-light), var(--mint-light));
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.9;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .pain-answer .em {
+      color: var(--pink);
+      font-size: 1.05rem;
+    }
+
+    /* ===== Stream Demo ===== */
+    .stream-demo {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(200, 168, 249, 0.08) 0%, transparent 50%);
+    }
+
+    .stream-mockup {
+      position: relative;
+      max-width: 340px;
+      margin: 0 auto 24px;
+      background: #1a1a2e;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+      aspect-ratio: 9 / 14;
+    }
+
+    .stream-mockup-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      z-index: 2;
+    }
+
+    .stream-live {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 59, 48, 0.9);
+      color: #fff;
+      font-size: 0.55rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .stream-live .dot {
+      width: 5px;
+      height: 5px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .stream-viewers {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      font-size: 0.55rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .stream-mockup-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 107, 157, 0.3), rgba(200, 168, 249, 0.3)),
+        linear-gradient(to bottom, #2d1b4e 0%, #1a1a2e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stream-mockup-bg .silhouette {
+      font-size: 6rem;
+      opacity: 0.3;
+    }
+
+    .stream-mockup-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 14px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      z-index: 2;
+    }
+
+    .mock-comment {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 0.65rem;
+      color: #fff;
+    }
+
+    .mock-comment .name { color: var(--yellow); font-weight: 700; }
+    .mock-comment .gift { color: var(--pink-light); }
+
+    .mock-input {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .stream-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .stream-caption strong {
+      color: var(--pink);
+    }
+
+    /* ===== Founders ===== */
+    .founders {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 20%, rgba(255, 224, 102, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(200, 168, 249, 0.06) 0%, transparent 50%);
+    }
+
+    .founders-lead {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.9;
+    }
+
+    .founder-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 28px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 24px var(--shadow);
+      border: 1px solid rgba(200, 168, 249, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .founder-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .founder-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      overflow: hidden;
+      border: 4px solid var(--pink-pale);
+      box-shadow: 0 4px 20px var(--shadow);
+      position: relative;
+      background: linear-gradient(135deg, var(--lavender-light), var(--pink-pale));
+    }
+
+    .founder-img .placeholder-icon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .founder-card:nth-child(1) .founder-img { border-color: var(--pink-light); }
+    .founder-card:nth-child(2) .founder-img { border-color: var(--lavender); }
+    .founder-card:nth-child(3) .founder-img { border-color: var(--mint); }
+
+    .founder-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 2px;
+    }
+
+    .founder-role {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--lavender);
+      margin-bottom: 12px;
+    }
+
+    .founder-card:nth-child(1) .founder-role { color: var(--pink); }
+    .founder-card:nth-child(2) .founder-role { color: #9B6FDB; }
+    .founder-card:nth-child(3) .founder-role { color: #3DBAA8; }
+
+    .founder-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .founder-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .founder-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+
+    .founder-card:nth-child(1) .founder-tag { background: var(--pink-pale); color: var(--pink); }
+    .founder-card:nth-child(2) .founder-tag { background: var(--lavender-light); color: #9B6FDB; }
+    .founder-card:nth-child(3) .founder-tag { background: var(--mint-light); color: #3DBAA8; }
+
+    @media (min-width: 768px) {
+      .founder-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+      .founder-card { margin-bottom: 0; }
+    }
+
+    /* ===== Strengths ===== */
+    .strengths {
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(127, 223, 212, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(255, 107, 157, 0.06) 0%, transparent 50%);
+    }
+
+    .strength-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 28px 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 24px var(--shadow);
+      transition: transform 0.3s;
+      border: 1px solid rgba(200, 168, 249, 0.1);
+    }
+
+    .strength-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .strength-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .strength-card:nth-child(1) .strength-icon { background: var(--pink-pale); }
+    .strength-card:nth-child(2) .strength-icon { background: var(--lavender-light); }
+    .strength-card:nth-child(3) .strength-icon { background: var(--mint-light); }
+
+    .strength-num {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--lavender);
+      margin-bottom: 6px;
+    }
+
+    .strength-card h3 {
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .strength-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .strength-card .stat {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .strength-card:nth-child(1) .stat { background: var(--pink-pale); color: var(--pink); }
+    .strength-card:nth-child(2) .stat { background: var(--lavender-light); color: #9B6FDB; }
+    .strength-card:nth-child(3) .stat { background: var(--mint-light); color: #3DBAA8; }
+
+    /* ===== Freedom ===== */
+    .freedom {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 224, 102, 0.08) 0%, transparent 50%);
+    }
+
+    .freedom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .freedom-item {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 22px 12px;
+      text-align: center;
+      box-shadow: 0 2px 16px var(--shadow);
+    }
+
+    .freedom-item .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .freedom-item .label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .freedom-item .desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== Dreams ===== */
+    .dreams {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(255, 107, 157, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(200, 168, 249, 0.07) 0%, transparent 50%);
+      overflow: hidden;
+    }
+
+    .dreams-lead {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .dreams-lead strong {
+      color: var(--pink);
+    }
+
+    .dream-track {
+      display: flex;
+      gap: 14px;
+      animation: scrollDreams 20s linear infinite;
+      width: max-content;
+      margin-bottom: 14px;
+    }
+
+    .dream-track.reverse {
+      animation: scrollDreamsReverse 22s linear infinite;
+    }
+
+    @keyframes scrollDreams {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes scrollDreamsReverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .dream-chip {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: var(--card);
+      border-radius: 50px;
+      box-shadow: 0 2px 14px var(--shadow);
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--text);
+    }
+
+    .dream-chip .dream-emoji {
+      font-size: 1.2rem;
+    }
+
+    .dreams-msg {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, var(--pink-pale), var(--lavender-light));
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1.8;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dreams-msg .pink { color: var(--pink); }
+
+    /* ===== CTA ===== */
+    .cta {
+      text-align: center;
+      padding: 72px 20px;
+      background:
+        linear-gradient(180deg, var(--bg) 0%, var(--pink-pale) 50%, var(--lavender-light) 100%);
+    }
+
+    .cta h2 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .cta h2 .gradient {
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.9;
+    }
+
+    .btn-audition {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(255, 107, 157, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-audition:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255, 107, 157, 0.4);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      background: var(--lavender-light);
+    }
+
+    footer .footer-logo {
+      font-weight: 900;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== Scroll Animations ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .section-title { font-size: 1.6rem; }
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .hero-sub { font-size: 1rem; max-width: 480px; }
+      section { padding: 80px 40px; }
+      .section-title { font-size: 1.8rem; }
+      .strength-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+      .strength-card { margin-bottom: 0; }
+      .freedom-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 560px;
+        margin: 20px auto 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sparkles -->
+  <div class="sparkles" id="sparkles"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-logo"><span class="accent">GIMMICK STREAM</span><span class="sub">ぎみっくすとりーむ</span></div>
+    <h1>その配信、<br><span class="highlight">魔法（ギミック）</span>で<br>バズらせない？</h1>
+    <p class="hero-sub">技術（ギミック）で、退屈な配信をパーティーに変える。<br>エンジニア集団がバックアップする次世代ライバー事務所。</p>
+  </section>
+
+  <!-- ===== PAIN POINTS ===== -->
+  <section class="pain">
+    <div class="reveal">
+      <span class="section-label">PROBLEM</span>
+      <h2 class="section-title">こんな悩み、<br><span class="pink">ありませんか？</span></h2>
+      <ul class="pain-list">
+        <li>一生懸命喋っているのに、リスナーがすぐに離れてしまう…</li>
+        <li>機材や設定が難しくて、やりたいことができない…</li>
+        <li>他のライバーと同じことばかりで、個性を出せない…</li>
+      </ul>
+      <div class="pain-answer">
+        ギミックストリームなら<br>
+        <span class="em">プログラム &#xd7; 電子工作</span>で<br>
+        「誰も見たことがない配信」が作れます&#x2728;
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STREAM DEMO ===== -->
+  <section class="stream-demo">
+    <div class="reveal">
+      <span class="section-label">IMAGE</span>
+      <h2 class="section-title">あなたの配信が<br><span class="lavender">こう変わる</span></h2>
+
+      <div class="stream-mockup">
+        <div class="stream-mockup-header">
+          <div class="stream-live"><span class="dot"></span> LIVE</div>
+          <div class="stream-viewers">&#x1f441; 3,842</div>
+        </div>
+        <div class="stream-mockup-bg">
+          <div class="silhouette">&#x1f3a4;</div>
+        </div>
+        <div class="stream-mockup-overlay">
+          <div class="mock-comment"><span class="name">&#x1f338; さくら:</span> すご！水鉄砲連動してる！？</div>
+          <div class="mock-comment"><span class="gift">&#x1f381; ギフト x5</span> &#x1f496; 最高～！</div>
+          <div class="mock-comment"><span class="name">&#x2b50; みく:</span> この仕掛けどうなってるの！</div>
+          <div class="mock-input">&#x1f4ac; コメントを入力...</div>
+        </div>
+      </div>
+
+      <p class="stream-caption">
+        視聴者が<strong>「おっ、これすごい！」</strong>と<br>
+        足を止める仕掛けを、私たちが作ります。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FOUNDERS ===== -->
+  <section class="founders">
+    <div class="reveal">
+      <span class="section-label">TEAM</span>
+      <h2 class="section-title"><span class="pink">3人の共同代表</span>が<br>あなたを導く</h2>
+      <p class="founders-lead">配信のプロ &#xd7; プログラマー &#xd7; エンジニア。<br>異色のチームがあなたの味方です。</p>
+
+      <div class="founder-cards">
+        <!-- パンクス -->
+        <div class="founder-card">
+          <div class="founder-img">
+            <div class="placeholder-icon">&#x1f3a4;</div>
+          </div>
+          <div class="founder-name">パンクス</div>
+          <div class="founder-role">CEO / TOP LIVER</div>
+          <p class="founder-desc">同時接続 最大10,000人を達成した伝説のライバー。視聴者を掴んで離さないトーク術と配信戦略を直接伝授。</p>
+          <div class="founder-tags">
+            <span class="founder-tag">トーク指導</span>
+            <span class="founder-tag">配信戦略</span>
+            <span class="founder-tag">集客ノウハウ</span>
+          </div>
+        </div>
+
+        <!-- ぱんたろう -->
+        <div class="founder-card">
+          <div class="founder-img">
+            <div class="placeholder-icon">&#x1f527;</div>
+          </div>
+          <div class="founder-name">ぱんたろう</div>
+          <div class="founder-role">COO / ENGINEER</div>
+          <p class="founder-desc">電子工作のスペシャリスト。水鉄砲・LEDなど物理デバイスと配信を連動させ、画面の向こうに「体験」を届けます。</p>
+          <div class="founder-tags">
+            <span class="founder-tag">電子工作</span>
+            <span class="founder-tag">デバイス連動</span>
+            <span class="founder-tag">スタジオ構築</span>
+          </div>
+        </div>
+
+        <!-- MEGWIN -->
+        <div class="founder-card">
+          <div class="founder-img">
+            <div class="placeholder-icon">&#x1f4bb;</div>
+          </div>
+          <div class="founder-name">MEGWIN</div>
+          <div class="founder-role">CTO / PROGRAMMER</div>
+          <p class="founder-desc">Python・HTML・OBSを駆使し、視聴者参加型の配信ツールを次々と開発。あなた専用のギミックをゼロから作ります。</p>
+          <div class="founder-tags">
+            <span class="founder-tag">Python</span>
+            <span class="founder-tag">OBSツール</span>
+            <span class="founder-tag">視聴者参加型</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRENGTHS ===== -->
+  <section class="strengths">
+    <div class="reveal">
+      <span class="section-label">WHY US</span>
+      <h2 class="section-title"><span class="lavender">3つの強み</span>で<br>あなたをサポート</h2>
+
+      <div class="strength-cards">
+        <div class="strength-card">
+          <div class="strength-icon">&#x1f3a4;</div>
+          <div class="strength-num">STRENGTH 01</div>
+          <h3>実績あるプロが<br>直接指導</h3>
+          <p>最大10,000人を集客したプロが、声の出し方から視聴者を離さないトーク術まで徹底伝授します。</p>
+          <span class="stat">&#x1f451; 最大同時接続 10,000人</span>
+        </div>
+
+        <div class="strength-card">
+          <div class="strength-icon">&#x1f4bb;</div>
+          <div class="strength-num">STRENGTH 02</div>
+          <h3>オリジナルツールを<br>まるごとプレゼント</h3>
+          <p>コードが書けなくてもOK！「視聴者が参加できる仕掛け」をそのまま差し上げます。</p>
+          <span class="stat">&#x1f381; 開発ツール 無料譲渡</span>
+        </div>
+
+        <div class="strength-card">
+          <div class="strength-icon">&#x1f528;</div>
+          <div class="strength-num">STRENGTH 03</div>
+          <h3>電子工作で配信を<br>リアルに拡張</h3>
+          <p>ハンダ付けも設定も不要。あなたの部屋を最強の配信スタジオにセットアップします。</p>
+          <span class="stat">&#x1f3e0; セットアップ 完全サポート</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FREEDOM ===== -->
+  <section class="freedom">
+    <div class="reveal">
+      <span class="section-label">STYLE</span>
+      <h2 class="section-title"><span class="mint">あなたのペース</span>で<br>活動できる</h2>
+      <p style="font-size:0.85rem; color:var(--text-muted);">ガッツリ週5でも、週1回1時間でもOK&#x2728;</p>
+
+      <div class="freedom-grid">
+        <div class="freedom-item">
+          <div class="icon">&#x1f525;</div>
+          <div class="label">がっつり型</div>
+          <div class="desc">週5日 / 5時間</div>
+        </div>
+        <div class="freedom-item">
+          <div class="icon">&#x26a1;</div>
+          <div class="label">バランス型</div>
+          <div class="desc">週3日 / 3時間</div>
+        </div>
+        <div class="freedom-item">
+          <div class="icon">&#x1f319;</div>
+          <div class="label">マイペース型</div>
+          <div class="desc">週1日 / 1時間</div>
+        </div>
+        <div class="freedom-item">
+          <div class="icon">&#x1f393;</div>
+          <div class="label">学生・副業OK</div>
+          <div class="desc">両立サポート</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DREAMS ===== -->
+  <section class="dreams">
+    <div class="reveal">
+      <span class="section-label">FUTURE</span>
+      <h2 class="section-title">ここをきっかけに<br><span class="pink">あなたの夢</span>を叶えたい</h2>
+      <p class="dreams-lead">配信で身につく<strong>発信力・ファン・つながり</strong>は、<br>どんな夢にも活きる最強のスキルです。</p>
+
+      <!-- Scrolling dream chips - row 1 -->
+      <div class="dream-track">
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3a4;</span>アイドル</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3ae;</span>プロゲーマー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f370;</span>お店を開く</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4e3;</span>集客・PR</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f680;</span>起業</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4bc;</span>就職に有利</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3db;&#xfe0f;</span>政治家</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3a4;</span>アイドル</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3ae;</span>プロゲーマー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f370;</span>お店を開く</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4e3;</span>集客・PR</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f680;</span>起業</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4bc;</span>就職に有利</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3db;&#xfe0f;</span>政治家</div>
+      </div>
+
+      <!-- Scrolling dream chips - row 2 (reverse) -->
+      <div class="dream-track reverse">
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4f8;</span>インフルエンサー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2702;&#xfe0f;</span>美容師・サロン</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3b6;</span>歌手・音楽活動</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4d6;</span>作家・クリエイター</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2708;&#xfe0f;</span>海外進出</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3c3;&#x200d;&#x2640;&#xfe0f;</span>フィットネス</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4f8;</span>インフルエンサー</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2702;&#xfe0f;</span>美容師・サロン</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3b6;</span>歌手・音楽活動</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f4d6;</span>作家・クリエイター</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x2708;&#xfe0f;</span>海外進出</div>
+        <div class="dream-chip"><span class="dream-emoji">&#x1f3c3;&#x200d;&#x2640;&#xfe0f;</span>フィットネス</div>
+      </div>
+
+      <div class="dreams-msg">
+        配信は、<span class="pink">どんな夢への近道</span>にもなる。<br>
+        私たちが全力であなたの<br>第一歩を応援します。
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta">
+    <div class="reveal">
+      <h2>第1回<span class="gradient">オーディション</span>開催中&#x2728;</h2>
+      <p class="cta-desc">ギミックストリームの仲間になりたい方、<br>まずはオーディションにエントリーしてみませんか？</p>
+      <a href="index.html" class="btn-audition">&#x270f;&#xfe0f; オーディション詳細へ</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-logo">GIMMICK STREAM</div>
+    <p>&copy; 2026 ギミックストリーム All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Sparkles
+    (function() {
+      var c = document.getElementById('sparkles');
+      var colors = ['#FFB8D0','#C8A8F9','#7FDFCD','#FFE066','#FF6B9D'];
+      for (var i = 0; i < 40; i++) {
+        var s = document.createElement('div');
+        s.className = 'sparkle';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.top = Math.random() * 100 + '%';
+        s.style.width = s.style.height = (Math.random() * 4 + 2) + 'px';
+        s.style.background = colors[Math.floor(Math.random() * colors.length)];
+        s.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        s.style.animationDelay = (Math.random() * 5) + 's';
+        c.appendChild(s);
+      }
+    })();
+
+    // Scroll Reveal
+    (function() {
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
