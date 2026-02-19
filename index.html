@@ -451,6 +451,121 @@
       color: var(--pink);
     }
 
+    /* ===== Founders ===== */
+    .founders {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 20%, rgba(255, 224, 102, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(200, 168, 249, 0.06) 0%, transparent 50%);
+    }
+
+    .founders-lead {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.9;
+    }
+
+    .founder-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 28px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 24px var(--shadow);
+      border: 1px solid rgba(200, 168, 249, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .founder-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .founder-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      overflow: hidden;
+      border: 4px solid var(--pink-pale);
+      box-shadow: 0 4px 20px var(--shadow);
+      position: relative;
+      background: linear-gradient(135deg, var(--lavender-light), var(--pink-pale));
+    }
+
+    .founder-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .founder-img .placeholder-icon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .founder-card:nth-child(1) .founder-img { border-color: var(--pink-light); }
+    .founder-card:nth-child(2) .founder-img { border-color: var(--lavender); }
+    .founder-card:nth-child(3) .founder-img { border-color: var(--mint); }
+
+    .founder-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 2px;
+    }
+
+    .founder-role {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--lavender);
+      margin-bottom: 12px;
+    }
+
+    .founder-card:nth-child(1) .founder-role { color: var(--pink); }
+    .founder-card:nth-child(2) .founder-role { color: #9B6FDB; }
+    .founder-card:nth-child(3) .founder-role { color: #3DBAA8; }
+
+    .founder-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .founder-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .founder-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+
+    .founder-card:nth-child(1) .founder-tag { background: var(--pink-pale); color: var(--pink); }
+    .founder-card:nth-child(2) .founder-tag { background: var(--lavender-light); color: #9B6FDB; }
+    .founder-card:nth-child(3) .founder-tag { background: var(--mint-light); color: #3DBAA8; }
+
+    @media (min-width: 768px) {
+      .founder-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+      .founder-card { margin-bottom: 0; }
+    }
+
     /* ===== Strengths ===== */
     .strengths {
       background:
@@ -860,6 +975,62 @@
         視聴者が<strong>「おっ、これすごい！」</strong>と<br>
         足を止める仕掛けを、私たちが作ります。
       </p>
+    </div>
+  </section>
+
+  <!-- ===== FOUNDERS ===== -->
+  <section class="founders">
+    <div class="reveal">
+      <span class="section-label">TEAM</span>
+      <h2 class="section-title"><span class="pink">3人の共同代表</span>が<br>あなたを導く</h2>
+      <p class="founders-lead">配信のプロ × プログラマー × エンジニア。<br>異色のチームがあなたの味方です。</p>
+
+      <div class="founder-cards">
+        <!-- MEGWIN -->
+        <div class="founder-card">
+          <div class="founder-img">
+            <div class="placeholder-icon">&#x1f3ac;</div>
+          </div>
+          <div class="founder-name">MEGWIN</div>
+          <div class="founder-role">CEO / TOP LIVER</div>
+          <p class="founder-desc">同時接続 最大10,000人を達成した伝説のライバー。視聴者を掴んで離さないトーク術と配信戦略を直接伝授。</p>
+          <div class="founder-tags">
+            <span class="founder-tag">トーク指導</span>
+            <span class="founder-tag">配信戦略</span>
+            <span class="founder-tag">集客ノウハウ</span>
+          </div>
+        </div>
+
+        <!-- ぱんたろう -->
+        <div class="founder-card">
+          <div class="founder-img">
+            <div class="placeholder-icon">&#x1f4bb;</div>
+          </div>
+          <div class="founder-name">ぱんたろう</div>
+          <div class="founder-role">CTO / PROGRAMMER</div>
+          <p class="founder-desc">Python・HTML・OBSを駆使し、視聴者参加型の配信ツールを次々と開発。あなた専用のギミックをゼロから作ります。</p>
+          <div class="founder-tags">
+            <span class="founder-tag">Python</span>
+            <span class="founder-tag">OBSツール</span>
+            <span class="founder-tag">視聴者参加型</span>
+          </div>
+        </div>
+
+        <!-- パンクス -->
+        <div class="founder-card">
+          <div class="founder-img">
+            <div class="placeholder-icon">&#x1f527;</div>
+          </div>
+          <div class="founder-name">パンクス</div>
+          <div class="founder-role">COO / ENGINEER</div>
+          <p class="founder-desc">電子工作のスペシャリスト。水鉄砲・LEDなど物理デバイスと配信を連動させ、画面の向こうに「体験」を届けます。</p>
+          <div class="founder-tags">
+            <span class="founder-tag">電子工作</span>
+            <span class="founder-tag">デバイス連動</span>
+            <span class="founder-tag">スタジオ構築</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
