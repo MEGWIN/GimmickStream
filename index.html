@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ギミックストリーム | 新人ライバー募集</title>
-  <meta name="description" content="技術（ギミック）で、退屈な配信をパーティーに変える。エンジニア集団がバックアップする次世代ライバー事務所。">
+  <title>第1回オーディション | ギミックストリーム</title>
+  <meta name="description" content="ギミックストリーム第1回オーディション開催。合格者2名にプロダクション所属＋活動費10万円。3月1日エントリー開始。">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap');
 
@@ -81,7 +81,6 @@
         radial-gradient(ellipse at 50% 50%, rgba(127, 223, 212, 0.08) 0%, transparent 50%);
     }
 
-    /* Fake streaming UI overlay */
     .stream-ui {
       position: absolute;
       top: 16px;
@@ -142,16 +141,17 @@
       font-weight: 700;
       color: var(--pink);
       letter-spacing: 0.15em;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       animation: fadeInUp 0.8s ease-out;
     }
 
     .hero-logo {
-      font-size: 1.2rem;
-      font-weight: 900;
+      font-size: 1rem;
+      font-weight: 700;
       letter-spacing: 0.15em;
-      margin-bottom: 28px;
-      animation: fadeInUp 0.8s ease-out 0.1s both;
+      margin-bottom: 8px;
+      animation: fadeInUp 0.8s ease-out 0.05s both;
+      color: var(--text-muted);
     }
 
     .hero-logo .accent {
@@ -159,6 +159,15 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    .hero-audition-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--lavender);
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.8s ease-out 0.1s both;
     }
 
     .hero h1 {
@@ -180,10 +189,36 @@
       font-size: 0.85rem;
       color: var(--text-muted);
       line-height: 1.9;
-      margin-bottom: 36px;
-      max-width: 320px;
+      margin-bottom: 28px;
+      max-width: 340px;
       animation: fadeInUp 0.8s ease-out 0.3s both;
     }
+
+    /* Hero key info pills */
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s ease-out 0.35s both;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: var(--card);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .hero-pill.pink { color: var(--pink); border: 1.5px solid var(--pink-light); }
+    .hero-pill.lavender { color: #9B6FDB; border: 1.5px solid var(--lavender); }
+    .hero-pill.mint { color: #3DBAA8; border: 1.5px solid var(--mint); }
 
     .hero-cta {
       display: inline-block;
@@ -203,6 +238,14 @@
     .hero-cta:hover {
       transform: translateY(-3px);
       box-shadow: 0 12px 40px rgba(255, 107, 157, 0.4);
+    }
+
+    .hero-deadline {
+      margin-top: 14px;
+      font-size: 0.7rem;
+      color: var(--pink);
+      font-weight: 700;
+      animation: fadeInUp 0.8s ease-out 0.45s both;
     }
 
     /* Floating chat bubbles */
@@ -265,7 +308,7 @@
     }
 
     .scroll-hint {
-      margin-top: 40px;
+      margin-top: 32px;
       font-size: 0.7rem;
       color: var(--text-muted);
       animation: bounce 2s infinite;
@@ -322,151 +365,236 @@
     .section-title .lavender { color: var(--lavender); }
     .section-title .mint { color: var(--mint); }
 
-    /* ===== Pain Points ===== */
-    .pain {
+    /* ===== Prize ===== */
+    .prize {
+      text-align: center;
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 107, 157, 0.06) 0%, transparent 50%);
+        radial-gradient(ellipse at 50% 30%, rgba(255, 224, 102, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(255, 107, 157, 0.06) 0%, transparent 50%);
     }
 
-    .pain-list {
-      list-style: none;
+    .prize-lead {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.9;
       margin-bottom: 28px;
     }
 
-    .pain-list li {
-      position: relative;
-      padding: 16px 16px 16px 20px;
-      margin-bottom: 10px;
+    .prize-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .prize-card {
       background: var(--card);
-      border-radius: 16px;
-      border-left: 4px solid var(--pink-light);
-      font-size: 0.85rem;
-      line-height: 1.7;
-      box-shadow: 0 2px 12px var(--shadow);
-    }
-
-    .pain-answer {
-      background: linear-gradient(135deg, var(--pink-pale), var(--lavender-light), var(--mint-light));
-      border-radius: 20px;
-      padding: 24px 20px;
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 24px var(--shadow);
+      border: 1px solid rgba(200, 168, 249, 0.1);
       text-align: center;
-      font-size: 0.9rem;
-      font-weight: 700;
-      line-height: 1.9;
-      box-shadow: 0 4px 20px var(--shadow);
     }
 
-    .pain-answer .em {
-      color: var(--pink);
-      font-size: 1.05rem;
+    .prize-card.main {
+      background: linear-gradient(135deg, var(--pink-pale), var(--lavender-light));
+      border: 2px solid var(--pink-light);
     }
 
-    /* ===== Stream Demo ===== */
-    .stream-demo {
-      text-align: center;
-      background:
-        radial-gradient(ellipse at 50% 50%, rgba(200, 168, 249, 0.08) 0%, transparent 50%);
+    .prize-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
     }
 
-    .stream-mockup {
-      position: relative;
-      max-width: 340px;
-      margin: 0 auto 24px;
-      background: #1a1a2e;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-      aspect-ratio: 9 / 14;
+    .prize-card h3 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      margin-bottom: 8px;
     }
 
-    .stream-mockup-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 14px;
-      z-index: 2;
+    .prize-card .amount {
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
     }
 
-    .stream-mockup-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(255, 107, 157, 0.3), rgba(200, 168, 249, 0.3)),
-        linear-gradient(to bottom, #2d1b4e 0%, #1a1a2e 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .stream-mockup-bg .silhouette {
-      font-size: 6rem;
-      opacity: 0.3;
-    }
-
-    .stream-mockup-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 16px 14px;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-      z-index: 2;
-    }
-
-    .mock-comment {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-      font-size: 0.65rem;
-      color: #fff;
-    }
-
-    .mock-comment .name { color: var(--yellow); font-weight: 700; }
-    .mock-comment .gift { color: var(--pink-light); }
-
-    .mock-input {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 6px 12px;
-      font-size: 0.6rem;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .stream-caption {
+    .prize-card p {
       font-size: 0.8rem;
       color: var(--text-muted);
       line-height: 1.8;
     }
 
-    .stream-caption strong {
+    /* ===== About ===== */
+    .about {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(200, 168, 249, 0.08) 0%, transparent 50%);
+    }
+
+    .about-lead {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .about-lead strong {
       color: var(--pink);
     }
 
-    /* ===== Founders ===== */
-    .founders {
+    .about-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .about-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: 0 2px 16px var(--shadow);
+    }
+
+    .about-point-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .about-point:nth-child(1) .about-point-icon { background: var(--pink-pale); }
+    .about-point:nth-child(2) .about-point-icon { background: var(--lavender-light); }
+    .about-point:nth-child(3) .about-point-icon { background: var(--mint-light); }
+
+    .about-point h3 {
+      font-size: 0.9rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .about-point p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== Schedule ===== */
+    .schedule {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 107, 157, 0.06) 0%, transparent 50%);
+    }
+
+    .timeline {
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--pink-light), var(--lavender), var(--mint));
+      border-radius: 2px;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding-left: 60px;
+      padding-bottom: 32px;
+      text-align: left;
+    }
+
+    .timeline-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .timeline-step:nth-child(1) .timeline-dot { background: var(--pink); }
+    .timeline-step:nth-child(2) .timeline-dot { background: var(--lavender); }
+    .timeline-step:nth-child(3) .timeline-dot { background: var(--mint); }
+
+    .timeline-date {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .timeline-step h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .timeline-step p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .timeline-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+
+    .timeline-step:nth-child(1) .timeline-badge { background: var(--pink-pale); color: var(--pink); }
+    .timeline-step:nth-child(2) .timeline-badge { background: var(--lavender-light); color: #9B6FDB; }
+    .timeline-step:nth-child(3) .timeline-badge { background: var(--mint-light); color: #3DBAA8; }
+
+    /* ===== Judges / Founders ===== */
+    .judges {
       text-align: center;
       background:
         radial-gradient(ellipse at 50% 20%, rgba(255, 224, 102, 0.08) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 80%, rgba(200, 168, 249, 0.06) 0%, transparent 50%);
     }
 
-    .founders-lead {
+    .judges-lead {
       font-size: 0.85rem;
       color: var(--text-muted);
       margin-bottom: 28px;
       line-height: 1.9;
     }
 
-    .founder-card {
+    .judge-card {
       background: var(--card);
       border-radius: 24px;
       padding: 28px 20px;
@@ -477,15 +605,15 @@
       transition: transform 0.3s;
     }
 
-    .founder-card:hover {
+    .judge-card:hover {
       transform: translateY(-4px);
     }
 
-    .founder-img {
-      width: 120px;
-      height: 120px;
+    .judge-img {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      margin: 0 auto 16px;
+      margin: 0 auto 14px;
       overflow: hidden;
       border: 4px solid var(--pink-pale);
       box-shadow: 0 4px 20px var(--shadow);
@@ -493,59 +621,51 @@
       background: linear-gradient(135deg, var(--lavender-light), var(--pink-pale));
     }
 
-    .founder-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .founder-img .placeholder-icon {
+    .judge-img .placeholder-icon {
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
 
-    .founder-card:nth-child(1) .founder-img { border-color: var(--pink-light); }
-    .founder-card:nth-child(2) .founder-img { border-color: var(--lavender); }
-    .founder-card:nth-child(3) .founder-img { border-color: var(--mint); }
+    .judge-card:nth-child(1) .judge-img { border-color: var(--pink-light); }
+    .judge-card:nth-child(2) .judge-img { border-color: var(--lavender); }
+    .judge-card:nth-child(3) .judge-img { border-color: var(--mint); }
 
-    .founder-name {
-      font-size: 1.2rem;
+    .judge-name {
+      font-size: 1.1rem;
       font-weight: 900;
       margin-bottom: 2px;
     }
 
-    .founder-role {
+    .judge-role {
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: var(--lavender);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .founder-card:nth-child(1) .founder-role { color: var(--pink); }
-    .founder-card:nth-child(2) .founder-role { color: #9B6FDB; }
-    .founder-card:nth-child(3) .founder-role { color: #3DBAA8; }
+    .judge-card:nth-child(1) .judge-role { color: var(--pink); }
+    .judge-card:nth-child(2) .judge-role { color: #9B6FDB; }
+    .judge-card:nth-child(3) .judge-role { color: #3DBAA8; }
 
-    .founder-desc {
-      font-size: 0.8rem;
+    .judge-desc {
+      font-size: 0.78rem;
       color: var(--text-muted);
       line-height: 1.8;
-      margin-bottom: 12px;
     }
 
-    .founder-tags {
+    .judge-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       justify-content: center;
+      margin-top: 12px;
     }
 
-    .founder-tag {
+    .judge-tag {
       display: inline-block;
       padding: 4px 12px;
       border-radius: 50px;
@@ -553,203 +673,60 @@
       font-weight: 700;
     }
 
-    .founder-card:nth-child(1) .founder-tag { background: var(--pink-pale); color: var(--pink); }
-    .founder-card:nth-child(2) .founder-tag { background: var(--lavender-light); color: #9B6FDB; }
-    .founder-card:nth-child(3) .founder-tag { background: var(--mint-light); color: #3DBAA8; }
+    .judge-card:nth-child(1) .judge-tag { background: var(--pink-pale); color: var(--pink); }
+    .judge-card:nth-child(2) .judge-tag { background: var(--lavender-light); color: #9B6FDB; }
+    .judge-card:nth-child(3) .judge-tag { background: var(--mint-light); color: #3DBAA8; }
 
     @media (min-width: 768px) {
-      .founder-cards {
+      .judge-cards {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
       }
-      .founder-card { margin-bottom: 0; }
+      .judge-card { margin-bottom: 0; }
     }
 
-    /* ===== Strengths ===== */
-    .strengths {
+    /* ===== Requirements ===== */
+    .requirements {
       background:
-        radial-gradient(ellipse at 20% 30%, rgba(127, 223, 212, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(255, 107, 157, 0.06) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 30%, rgba(127, 223, 212, 0.08) 0%, transparent 50%);
     }
 
-    .strength-card {
-      background: var(--card);
-      border-radius: 24px;
-      padding: 28px 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 24px var(--shadow);
-      transition: transform 0.3s;
-      border: 1px solid rgba(200, 168, 249, 0.1);
+    .req-table {
+      max-width: 440px;
+      margin: 0 auto;
     }
 
-    .strength-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .strength-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+    .req-row {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(200, 168, 249, 0.15);
+      padding: 16px 0;
     }
 
-    .strength-card:nth-child(1) .strength-icon { background: var(--pink-pale); }
-    .strength-card:nth-child(2) .strength-icon { background: var(--lavender-light); }
-    .strength-card:nth-child(3) .strength-icon { background: var(--mint-light); }
-
-    .strength-num {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--lavender);
-      margin-bottom: 6px;
+    .req-row:last-child {
+      border-bottom: none;
     }
 
-    .strength-card h3 {
-      font-size: 1.05rem;
-      font-weight: 900;
-      margin-bottom: 12px;
-      line-height: 1.6;
-    }
-
-    .strength-card p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .strength-card .stat {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 6px 18px;
-      border-radius: 50px;
+    .req-label {
+      flex-shrink: 0;
+      width: 100px;
       font-size: 0.75rem;
       font-weight: 700;
+      color: var(--lavender);
     }
 
-    .strength-card:nth-child(1) .stat { background: var(--pink-pale); color: var(--pink); }
-    .strength-card:nth-child(2) .stat { background: var(--lavender-light); color: #9B6FDB; }
-    .strength-card:nth-child(3) .stat { background: var(--mint-light); color: #3DBAA8; }
-
-    /* ===== Freedom ===== */
-    .freedom {
-      text-align: center;
-      background:
-        radial-gradient(ellipse at 50% 50%, rgba(255, 224, 102, 0.08) 0%, transparent 50%);
-    }
-
-    .freedom-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .freedom-item {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 22px 12px;
-      text-align: center;
-      box-shadow: 0 2px 16px var(--shadow);
-    }
-
-    .freedom-item .icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .freedom-item .label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .freedom-item .desc {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-
-    /* ===== Dreams ===== */
-    .dreams {
-      text-align: center;
-      background:
-        radial-gradient(ellipse at 30% 40%, rgba(255, 107, 157, 0.07) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 60%, rgba(200, 168, 249, 0.07) 0%, transparent 50%);
-      overflow: hidden;
-    }
-
-    .dreams-lead {
+    .req-value {
       font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .req-note {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      line-height: 1.9;
-      margin-bottom: 28px;
-    }
-
-    .dreams-lead strong {
-      color: var(--pink);
-    }
-
-    .dream-track {
-      display: flex;
-      gap: 14px;
-      animation: scrollDreams 20s linear infinite;
-      width: max-content;
-      margin-bottom: 14px;
-    }
-
-    .dream-track.reverse {
-      animation: scrollDreamsReverse 22s linear infinite;
-    }
-
-    @keyframes scrollDreams {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    @keyframes scrollDreamsReverse {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
-    }
-
-    .dream-chip {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 22px;
-      background: var(--card);
-      border-radius: 50px;
-      box-shadow: 0 2px 14px var(--shadow);
-      font-size: 0.8rem;
-      font-weight: 700;
-      white-space: nowrap;
-      color: var(--text);
-    }
-
-    .dream-chip .dream-emoji {
-      font-size: 1.2rem;
-    }
-
-    .dreams-msg {
-      margin-top: 28px;
-      padding: 20px 24px;
-      background: linear-gradient(135deg, var(--pink-pale), var(--lavender-light));
-      border-radius: 20px;
-      font-size: 1rem;
-      font-weight: 900;
       line-height: 1.8;
-      max-width: 340px;
-      margin-left: auto;
-      margin-right: auto;
     }
-
-    .dreams-msg .pink { color: var(--pink); }
 
     /* ===== CTA ===== */
     .cta {
@@ -776,8 +753,15 @@
     .cta-desc {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 28px;
+      margin-bottom: 8px;
       line-height: 1.9;
+    }
+
+    .cta-deadline {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 28px;
     }
 
     .cta-buttons {
@@ -786,6 +770,28 @@
       gap: 14px;
       max-width: 300px;
       margin: 0 auto;
+    }
+
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(255, 107, 157, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255, 107, 157, 0.4);
     }
 
     .btn-line {
@@ -808,27 +814,6 @@
     .btn-line:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 30px rgba(6, 199, 85, 0.4);
-    }
-
-    .btn-form {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 15px 32px;
-      background: var(--card);
-      color: var(--pink);
-      font-size: 0.9rem;
-      font-weight: 700;
-      border: 2px solid var(--pink-light);
-      border-radius: 50px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .btn-form:hover {
-      background: var(--pink-pale);
-      transform: translateY(-2px);
     }
 
     .cta-note {
@@ -881,17 +866,11 @@
       .hero-sub { font-size: 1rem; max-width: 480px; }
       section { padding: 80px 40px; }
       .section-title { font-size: 1.8rem; }
-      .strength-cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 20px;
+      .prize-cards {
+        flex-direction: row;
+        max-width: 700px;
       }
-      .strength-card { margin-bottom: 0; }
-      .freedom-grid {
-        grid-template-columns: repeat(4, 1fr);
-        max-width: 560px;
-        margin: 20px auto 0;
-      }
+      .prize-card { flex: 1; }
     }
   </style>
 </head>
@@ -902,13 +881,11 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
-    <!-- Streaming UI elements -->
     <div class="stream-ui">
       <div class="stream-live"><span class="dot"></span> LIVE</div>
       <div class="stream-viewers">&#x1f441; <span id="viewer-count">9,823</span></div>
     </div>
 
-    <!-- Floating hearts like live stream -->
     <div class="float-hearts">
       <div class="float-heart">&#x1f496;</div>
       <div class="float-heart">&#x2764;&#xfe0f;</div>
@@ -916,253 +893,225 @@
       <div class="float-heart">&#x1f49b;</div>
     </div>
 
-    <!-- Chat bubbles -->
     <div class="chat-bubbles">
-      <div class="chat-bubble">&#x1f389; かわいい！！</div>
-      <div class="chat-bubble">&#x1f525; 神配信きた！</div>
-      <div class="chat-bubble">&#x1f496; 推せる～！</div>
+      <div class="chat-bubble">&#x1f389; オーディションだ！</div>
+      <div class="chat-bubble">&#x1f525; 応募したい！</div>
+      <div class="chat-bubble">&#x1f496; 2名限定！？</div>
     </div>
 
-    <div class="hero-badge">&#x2728; NEW LIVER WANTED &#x2728;</div>
+    <div class="hero-badge">&#x2728; AUDITION ENTRY START &#x2728;</div>
     <div class="hero-logo"><span class="accent">GIMMICK STREAM</span></div>
-    <h1>その配信、<br><span class="highlight">魔法（ギミック）</span>で<br>バズらせない？</h1>
-    <p class="hero-sub">同時接続10,000人のノウハウ &#xd7; 独自開発プログラムで、あなたの夢をブーストする。</p>
-    <a href="#apply" class="hero-cta">&#x2728; 今すぐ応募する</a>
+    <div class="hero-audition-num">&#x2014; 第1回オーディション &#x2014;</div>
+    <h1><span class="highlight">次世代のスター</span>は<br>あなたかもしれない</h1>
+    <p class="hero-sub">プログラム &#xd7; 電子工作で配信を変える事務所が、一緒に夢を追う仲間を探しています。</p>
+
+    <div class="hero-info">
+      <span class="hero-pill pink">&#x1f496; 女性限定</span>
+      <span class="hero-pill lavender">&#x1f451; 合格 2名</span>
+      <span class="hero-pill mint">&#x1f4b0; 活動費 10万円</span>
+    </div>
+
+    <a href="#apply" class="hero-cta">&#x270f;&#xfe0f; エントリーする</a>
+    <div class="hero-deadline">エントリー締切：3月14日（金）</div>
     <div class="scroll-hint">scroll<span>&#x2193;</span></div>
   </section>
 
-  <!-- ===== PAIN POINTS ===== -->
-  <section class="pain">
+  <!-- ===== PRIZE ===== -->
+  <section class="prize">
     <div class="reveal">
-      <span class="section-label">PROBLEM</span>
-      <h2 class="section-title">こんな悩み、<br><span class="pink">ありませんか？</span></h2>
-      <ul class="pain-list">
-        <li>一生懸命喋っているのに、リスナーがすぐに離れてしまう…</li>
-        <li>機材や設定が難しくて、やりたいことができない…</li>
-        <li>他のライバーと同じことばかりで、個性を出せない…</li>
-      </ul>
-      <div class="pain-answer">
-        ギミックストリームなら<br>
-        <span class="em">プログラム &#xd7; 電子工作</span>で<br>
-        「誰も見たことがない配信」が作れます&#x2728;
+      <span class="section-label">PRIZE</span>
+      <h2 class="section-title">合格者<span class="pink">全員</span>に</h2>
+
+      <div class="prize-cards">
+        <div class="prize-card main">
+          <div class="prize-icon">&#x1f3e2;</div>
+          <h3>プロダクション正式所属</h3>
+          <p>ギミックストリームのライバーとして、3人の代表が全面バックアップ。配信戦略・ツール・機材すべてサポートします。</p>
+        </div>
+        <div class="prize-card main">
+          <div class="prize-icon">&#x1f4b0;</div>
+          <h3>活動費</h3>
+          <div class="amount">100,000<span style="font-size:0.8rem;">&#x5186;</span></div>
+          <p>配信に必要な機材や環境づくりに使える活動費を支給します。</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== STREAM DEMO ===== -->
-  <section class="stream-demo">
+  <!-- ===== ABOUT ===== -->
+  <section class="about">
     <div class="reveal">
-      <span class="section-label">IMAGE</span>
-      <h2 class="section-title">あなたの配信が<br><span class="lavender">こう変わる</span></h2>
+      <span class="section-label">ABOUT</span>
+      <h2 class="section-title" style="text-align:center;"><span class="lavender">ギミックストリーム</span>って？</h2>
+      <p class="about-lead"><strong>プログラム &#xd7; 電子工作</strong>で「誰も見たことがない配信」を作る、<br>エンジニア集団がバックアップする次世代ライバー事務所です。</p>
 
-      <div class="stream-mockup">
-        <div class="stream-mockup-header">
-          <div class="stream-live" style="font-size:0.55rem; padding:3px 10px;"><span class="dot" style="width:5px;height:5px;"></span> LIVE</div>
-          <div class="stream-viewers" style="font-size:0.55rem; padding:3px 10px;">&#x1f441; 3,842</div>
+      <div class="about-points">
+        <div class="about-point">
+          <div class="about-point-icon">&#x1f3a4;</div>
+          <div>
+            <h3>同接10,000人の実績</h3>
+            <p>プロのトーク術と配信戦略で視聴者を集める方法を直接指導します。</p>
+          </div>
         </div>
-        <div class="stream-mockup-bg">
-          <div class="silhouette">&#x1f3a4;</div>
+        <div class="about-point">
+          <div class="about-point-icon">&#x1f4bb;</div>
+          <div>
+            <h3>オリジナルツール開発</h3>
+            <p>視聴者参加型の仕掛けを独自開発。あなただけのギミックをプレゼント。</p>
+          </div>
         </div>
-        <div class="stream-mockup-overlay">
-          <div class="mock-comment"><span class="name">&#x1f338; さくら:</span> すご！水鉄砲連動してる！？</div>
-          <div class="mock-comment"><span class="gift">&#x1f381; ギフト x5</span> &#x1f496; 最高～！</div>
-          <div class="mock-comment"><span class="name">&#x2b50; みく:</span> この仕掛けどうなってるの！</div>
-          <div class="mock-input">&#x1f4ac; コメントを入力...</div>
+        <div class="about-point">
+          <div class="about-point-icon">&#x1f528;</div>
+          <div>
+            <h3>電子工作でリアル拡張</h3>
+            <p>物理デバイスと配信を連動。あなたの部屋を最強のスタジオにします。</p>
+          </div>
         </div>
       </div>
-
-      <p class="stream-caption">
-        視聴者が<strong>「おっ、これすごい！」</strong>と<br>
-        足を止める仕掛けを、私たちが作ります。
-      </p>
     </div>
   </section>
 
-  <!-- ===== FOUNDERS ===== -->
-  <section class="founders">
+  <!-- ===== SCHEDULE ===== -->
+  <section class="schedule">
     <div class="reveal">
-      <span class="section-label">TEAM</span>
-      <h2 class="section-title"><span class="pink">3人の共同代表</span>が<br>あなたを導く</h2>
-      <p class="founders-lead">配信のプロ × プログラマー × エンジニア。<br>異色のチームがあなたの味方です。</p>
+      <span class="section-label">SCHEDULE</span>
+      <h2 class="section-title">オーディションの<span class="pink">流れ</span></h2>
 
-      <div class="founder-cards">
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-date">3月1日（土）〜 3月14日（金）</div>
+          <h3>書類審査</h3>
+          <p>エントリーフォームから応募。あなたのことや配信への想いを教えてください。</p>
+          <span class="timeline-badge">&#x1f4dd; エントリー受付中</span>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot">2</div>
+          <div class="timeline-date">3月15日（土）〜</div>
+          <h3>ビデオチャット審査</h3>
+          <p>書類通過者と代表がオンラインで直接お話しします。かしこまらなくてOK！</p>
+          <span class="timeline-badge">&#x1f4f9; オンライン面談</span>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-date">3月28日（土）</div>
+          <h3>公開ライブで最終発表</h3>
+          <p>都内にて公開ライブイベントを開催。その場で合格者を発表します！</p>
+          <span class="timeline-badge">&#x1f3a4; 都内会場にて</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JUDGES ===== -->
+  <section class="judges">
+    <div class="reveal">
+      <span class="section-label">JUDGES</span>
+      <h2 class="section-title"><span class="pink">3人の代表</span>が<br>あなたを審査します</h2>
+      <p class="judges-lead">配信のプロ &#xd7; プログラマー &#xd7; エンジニア。<br>合格後はこの3人があなたを全力サポート。</p>
+
+      <div class="judge-cards">
         <!-- パンクス -->
-        <div class="founder-card">
-          <div class="founder-img">
+        <div class="judge-card">
+          <div class="judge-img">
             <div class="placeholder-icon">&#x1f3a4;</div>
           </div>
-          <div class="founder-name">パンクス</div>
-          <div class="founder-role">CEO / TOP LIVER</div>
-          <p class="founder-desc">同時接続 最大10,000人を達成した伝説のライバー。視聴者を掴んで離さないトーク術と配信戦略を直接伝授。</p>
-          <div class="founder-tags">
-            <span class="founder-tag">トーク指導</span>
-            <span class="founder-tag">配信戦略</span>
-            <span class="founder-tag">集客ノウハウ</span>
+          <div class="judge-name">パンクス</div>
+          <div class="judge-role">CEO / TOP LIVER</div>
+          <p class="judge-desc">同時接続 最大10,000人を達成した伝説のライバー。視聴者を掴んで離さないトーク術と配信戦略を直接伝授。</p>
+          <div class="judge-tags">
+            <span class="judge-tag">トーク指導</span>
+            <span class="judge-tag">配信戦略</span>
+            <span class="judge-tag">集客ノウハウ</span>
           </div>
         </div>
 
         <!-- ぱんたろう -->
-        <div class="founder-card">
-          <div class="founder-img">
+        <div class="judge-card">
+          <div class="judge-img">
             <div class="placeholder-icon">&#x1f527;</div>
           </div>
-          <div class="founder-name">ぱんたろう</div>
-          <div class="founder-role">COO / ENGINEER</div>
-          <p class="founder-desc">電子工作のスペシャリスト。水鉄砲・LEDなど物理デバイスと配信を連動させ、画面の向こうに「体験」を届けます。</p>
-          <div class="founder-tags">
-            <span class="founder-tag">電子工作</span>
-            <span class="founder-tag">デバイス連動</span>
-            <span class="founder-tag">スタジオ構築</span>
+          <div class="judge-name">ぱんたろう</div>
+          <div class="judge-role">COO / ENGINEER</div>
+          <p class="judge-desc">電子工作のスペシャリスト。水鉄砲・LEDなど物理デバイスと配信を連動させ、画面の向こうに「体験」を届けます。</p>
+          <div class="judge-tags">
+            <span class="judge-tag">電子工作</span>
+            <span class="judge-tag">デバイス連動</span>
+            <span class="judge-tag">スタジオ構築</span>
           </div>
         </div>
 
         <!-- MEGWIN -->
-        <div class="founder-card">
-          <div class="founder-img">
+        <div class="judge-card">
+          <div class="judge-img">
             <div class="placeholder-icon">&#x1f4bb;</div>
           </div>
-          <div class="founder-name">MEGWIN</div>
-          <div class="founder-role">CTO / PROGRAMMER</div>
-          <p class="founder-desc">Python・HTML・OBSを駆使し、視聴者参加型の配信ツールを次々と開発。あなた専用のギミックをゼロから作ります。</p>
-          <div class="founder-tags">
-            <span class="founder-tag">Python</span>
-            <span class="founder-tag">OBSツール</span>
-            <span class="founder-tag">視聴者参加型</span>
+          <div class="judge-name">MEGWIN</div>
+          <div class="judge-role">CTO / PROGRAMMER</div>
+          <p class="judge-desc">Python・HTML・OBSを駆使し、視聴者参加型の配信ツールを次々と開発。あなた専用のギミックをゼロから作ります。</p>
+          <div class="judge-tags">
+            <span class="judge-tag">Python</span>
+            <span class="judge-tag">OBSツール</span>
+            <span class="judge-tag">視聴者参加型</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== STRENGTHS ===== -->
-  <section class="strengths">
+  <!-- ===== REQUIREMENTS ===== -->
+  <section class="requirements">
     <div class="reveal">
-      <span class="section-label">WHY US</span>
-      <h2 class="section-title"><span class="lavender">3つの強み</span>で<br>あなたをサポート</h2>
+      <span class="section-label">DETAILS</span>
+      <h2 class="section-title" style="text-align:center;">募集<span class="mint">要項</span></h2>
 
-      <div class="strength-cards">
-        <div class="strength-card">
-          <div class="strength-icon">&#x1f3a4;</div>
-          <div class="strength-num">STRENGTH 01</div>
-          <h3>実績あるプロが<br>直接指導</h3>
-          <p>最大10,000人を集客したプロが、声の出し方から視聴者を離さないトーク術まで徹底伝授します。</p>
-          <span class="stat">&#x1f451; 最大同時接続 10,000人</span>
+      <div class="req-table">
+        <div class="req-row">
+          <div class="req-label">募集人数</div>
+          <div class="req-value"><strong>2名</strong></div>
         </div>
-
-        <div class="strength-card">
-          <div class="strength-icon">&#x1f4bb;</div>
-          <div class="strength-num">STRENGTH 02</div>
-          <h3>オリジナルツールを<br>まるごとプレゼント</h3>
-          <p>コードが書けなくてもOK！「視聴者が参加できる仕掛け」をそのまま差し上げます。</p>
-          <span class="stat">&#x1f381; 開発ツール 無料譲渡</span>
+        <div class="req-row">
+          <div class="req-label">応募資格</div>
+          <div class="req-value">女性の方（年齢不問）</div>
         </div>
-
-        <div class="strength-card">
-          <div class="strength-icon">&#x1f528;</div>
-          <div class="strength-num">STRENGTH 03</div>
-          <h3>電子工作で配信を<br>リアルに拡張</h3>
-          <p>ハンダ付けも設定も不要。あなたの部屋を最強の配信スタジオにセットアップします。</p>
-          <span class="stat">&#x1f3e0; セットアップ 完全サポート</span>
+        <div class="req-row">
+          <div class="req-label">経験</div>
+          <div class="req-value">配信経験は問いません。未経験OK！</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FREEDOM ===== -->
-  <section class="freedom">
-    <div class="reveal">
-      <span class="section-label">STYLE</span>
-      <h2 class="section-title"><span class="mint">あなたのペース</span>で<br>活動できる</h2>
-      <p style="font-size:0.85rem; color:var(--text-muted);">ガッツリ週5でも、週1回1時間でもOK&#x2728;</p>
-
-      <div class="freedom-grid">
-        <div class="freedom-item">
-          <div class="icon">&#x1f525;</div>
-          <div class="label">がっつり型</div>
-          <div class="desc">週5日 / 5時間</div>
+        <div class="req-row">
+          <div class="req-label">審査員</div>
+          <div class="req-value">共同代表 3名（パンクス・ぱんたろう・MEGWIN）</div>
         </div>
-        <div class="freedom-item">
-          <div class="icon">&#x26a1;</div>
-          <div class="label">バランス型</div>
-          <div class="desc">週3日 / 3時間</div>
+        <div class="req-row">
+          <div class="req-label">合格特典</div>
+          <div class="req-value">プロダクション所属 ＋ 活動費 10万円</div>
         </div>
-        <div class="freedom-item">
-          <div class="icon">&#x1f319;</div>
-          <div class="label">マイペース型</div>
-          <div class="desc">週1日 / 1時間</div>
-        </div>
-        <div class="freedom-item">
-          <div class="icon">&#x1f393;</div>
-          <div class="label">学生・副業OK</div>
-          <div class="desc">両立サポート</div>
+        <div class="req-row">
+          <div class="req-label">最終審査</div>
+          <div class="req-value">3月28日（土）都内の会場にて公開ライブ</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== DREAMS ===== -->
-  <section class="dreams">
-    <div class="reveal">
-      <span class="section-label">FUTURE</span>
-      <h2 class="section-title">ここをきっかけに<br><span class="pink">あなたの夢</span>を叶えたい</h2>
-      <p class="dreams-lead">配信で身につく<strong>発信力・ファン・つながり</strong>は、<br>どんな夢にも活きる最強のスキルです。</p>
-
-      <!-- Scrolling dream chips - row 1 -->
-      <div class="dream-track">
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3a4;</span>アイドル</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3ae;</span>プロゲーマー</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f370;</span>お店を開く</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4e3;</span>集客・PR</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f680;</span>起業</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4bc;</span>就職に有利</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3db;&#xfe0f;</span>政治家</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3a4;</span>アイドル</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3ae;</span>プロゲーマー</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f370;</span>お店を開く</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4e3;</span>集客・PR</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f680;</span>起業</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4bc;</span>就職に有利</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3db;&#xfe0f;</span>政治家</div>
-      </div>
-
-      <!-- Scrolling dream chips - row 2 (reverse) -->
-      <div class="dream-track reverse">
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4f8;</span>インフルエンサー</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x2702;&#xfe0f;</span>美容師・サロン</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3b6;</span>歌手・音楽活動</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4d6;</span>作家・クリエイター</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x2708;&#xfe0f;</span>海外進出</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3c3;&#x200d;&#x2640;&#xfe0f;</span>フィットネス</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4f8;</span>インフルエンサー</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x2702;&#xfe0f;</span>美容師・サロン</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3b6;</span>歌手・音楽活動</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f4d6;</span>作家・クリエイター</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x2708;&#xfe0f;</span>海外進出</div>
-        <div class="dream-chip"><span class="dream-emoji">&#x1f3c3;&#x200d;&#x2640;&#xfe0f;</span>フィットネス</div>
-      </div>
-
-      <div class="dreams-msg">
-        配信は、<span class="pink">どんな夢への近道</span>にもなる。<br>
-        私たちが全力であなたの<br>第一歩を応援します。
-      </div>
+      <p class="req-note">※ ビデオチャット審査はオンラインで行います。<br>※ 最終審査の交通費等については個別にご相談ください。</p>
     </div>
   </section>
 
   <!-- ===== CTA ===== -->
   <section class="cta" id="apply">
     <div class="reveal">
-      <h2>まずは<span class="gradient">気軽に相談</span>から&#x2728;</h2>
-      <p class="cta-desc">あなたの個性をどうギミックにするか、<br>一緒に話しましょう！</p>
+      <h2><span class="gradient">運命を変える</span>エントリーを&#x2728;</h2>
+      <p class="cta-desc">まずは書類審査から。あなたの想いを聞かせてください。</p>
+      <p class="cta-deadline">エントリー締切：3月14日（金）</p>
       <div class="cta-buttons">
+        <a href="#" class="btn-primary">
+          &#x270f;&#xfe0f; エントリーフォームへ
+        </a>
         <a href="#" class="btn-line">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-          LINEで相談する
-        </a>
-        <a href="#" class="btn-form">
-          &#x1f4dd; 応募フォームはこちら
+          LINEで質問・相談する
         </a>
       </div>
-      <p class="cta-note">※ 相談だけでもOK！お気軽にどうぞ</p>
+      <p class="cta-note">※ LINEでは質問・相談を受け付けています。お気軽にどうぞ！</p>
     </div>
   </section>
 
