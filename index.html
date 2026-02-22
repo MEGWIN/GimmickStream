@@ -639,6 +639,26 @@
       font-size: 2.5rem;
     }
 
+    .judge-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .judge-img img.img-real {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .judge-img:hover img.img-real,
+    .judge-img.active img.img-real {
+      opacity: 1;
+    }
+
     .judge-card:nth-child(1) .judge-img { border-color: var(--pink-light); }
     .judge-card:nth-child(2) .judge-img { border-color: var(--lavender); }
     .judge-card:nth-child(3) .judge-img { border-color: var(--mint); }
@@ -1040,8 +1060,9 @@
       <div class="judge-cards">
         <!-- パンクス -->
         <div class="judge-card">
-          <div class="judge-img">
-            <div class="placeholder-icon">&#x1f3a4;</div>
+          <div class="judge-img" ontouchstart="this.classList.toggle('active')">
+            <img src="images/punks.jpg" alt="パンクス">
+            <img src="images/punks-real.jpg" alt="パンクス（実写）" class="img-real">
           </div>
           <div class="judge-name">パンクス</div>
           <div class="judge-role">CEO / TOP LIVER</div>
@@ -1071,7 +1092,7 @@
         <!-- MEGWIN -->
         <div class="judge-card">
           <div class="judge-img">
-            <div class="placeholder-icon">&#x1f4bb;</div>
+            <img src="images/megwin.png" alt="MEGWIN">
           </div>
           <div class="judge-name">MEGWIN</div>
           <div class="judge-role">CTO / PROGRAMMER</div>

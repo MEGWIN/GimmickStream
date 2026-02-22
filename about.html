@@ -388,6 +388,26 @@
       font-size: 3rem;
     }
 
+    .founder-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .founder-img img.img-real {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .founder-img:hover img.img-real,
+    .founder-img.active img.img-real {
+      opacity: 1;
+    }
+
     .founder-card:nth-child(1) .founder-img { border-color: var(--pink-light); }
     .founder-card:nth-child(2) .founder-img { border-color: var(--lavender); }
     .founder-card:nth-child(3) .founder-img { border-color: var(--mint); }
@@ -808,8 +828,9 @@
       <div class="founder-cards">
         <!-- パンクス -->
         <div class="founder-card">
-          <div class="founder-img">
-            <div class="placeholder-icon">&#x1f3a4;</div>
+          <div class="founder-img" ontouchstart="this.classList.toggle('active')">
+            <img src="images/punks.jpg" alt="パンクス">
+            <img src="images/punks-real.jpg" alt="パンクス（実写）" class="img-real">
           </div>
           <div class="founder-name">パンクス</div>
           <div class="founder-role">CEO / TOP LIVER</div>
@@ -839,7 +860,7 @@
         <!-- MEGWIN -->
         <div class="founder-card">
           <div class="founder-img">
-            <div class="placeholder-icon">&#x1f4bb;</div>
+            <img src="images/megwin.png" alt="MEGWIN">
           </div>
           <div class="founder-name">MEGWIN</div>
           <div class="founder-role">CTO / PROGRAMMER</div>
