@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gimmick Streamとは | ギミックストリーム</title>
   <meta name="description" content="技術（ギミック）で、退屈な配信をパーティーに変える。エンジニア集団がバックアップする次世代ライバー事務所。">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQEJWBE938"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LQEJWBE938');
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap');
 
@@ -1031,6 +1039,15 @@
         });
       }, { threshold: 0.15 });
       reveals.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // GA4 Event Tracking
+    (function() {
+      document.querySelectorAll('.btn-audition').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'click_audition', { event_category: 'CTA', event_label: 'オーディション詳細へ' });
+        });
+      });
     })();
   </script>
 
