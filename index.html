@@ -13,6 +13,14 @@
     gtag('js', new Date());
     gtag('config', 'G-LQEJWBE938');
   </script>
+  <!-- X Pixel Base Code -->
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    twq('config','r7npn');
+  </script>
+  <!-- End X Pixel Base Code -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap');
 
@@ -1224,6 +1232,7 @@
       document.querySelectorAll('.hero-cta, .btn-primary').forEach(function(el) {
         el.addEventListener('click', function() {
           gtag('event', 'click_entry', { event_category: 'CTA', event_label: 'エントリーボタン' });
+          twq('event', 'tw-r7npn-r7nrt', {});
         });
       });
       document.querySelectorAll('.btn-line').forEach(function(el) {
