@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo create:*)",
+      "Read(//d/ダウンロード/**)",
+      "Bash(git remote get-url:*)",
+      "WebFetch(domain:docs.google.com)",
+      "Bash(git pull:*)",
+      "Bash(gh api:*)",
+      "Bash(nslookup:*)"
+    ],
+    "additionalDirectories": [
+      "D:\\ダウンロード",
+      "C:\\Users\\seego\\Desktop"
+    ]
+  }
+}
