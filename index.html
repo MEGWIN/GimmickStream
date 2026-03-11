@@ -345,6 +345,109 @@
       margin-top: 2px;
     }
 
+    /* ===== Hero Photo Collage ===== */
+    .hero-photos {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-photo {
+      position: absolute;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(61, 43, 78, 0.18);
+      opacity: 0;
+      animation: photoReveal 1s ease-out forwards;
+      aspect-ratio: 9 / 13;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      filter: saturate(0.85) brightness(1.05);
+    }
+
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(255, 171, 145, 0.15),
+        rgba(200, 168, 249, 0.18));
+    }
+
+    @keyframes photoReveal {
+      from { opacity: 0; transform: translateY(24px) scale(0.92); }
+      to   { opacity: var(--photo-op, 0.7); transform: translateY(0) scale(1); }
+    }
+
+    /* Left column */
+    .hero-photo:nth-child(1) {
+      width: 120px; top: 4%;  left: -10px;
+      rotate: -7deg;
+      animation-delay: 0.3s;
+    }
+    .hero-photo:nth-child(2) {
+      width: 110px; top: 32%; left: -5px;
+      rotate: 5deg;
+      animation-delay: 0.55s;
+    }
+    .hero-photo:nth-child(3) {
+      width: 115px; bottom: 10%; left: -8px;
+      rotate: -3deg;
+      animation-delay: 0.8s;
+    }
+    /* Right column */
+    .hero-photo:nth-child(4) {
+      width: 120px; top: 3%;  right: -10px;
+      rotate: 6deg;
+      animation-delay: 0.4s;
+    }
+    .hero-photo:nth-child(5) {
+      width: 110px; top: 34%; right: -5px;
+      rotate: -5deg;
+      animation-delay: 0.65s;
+    }
+    .hero-photo:nth-child(6) {
+      width: 115px; bottom: 8%; right: -8px;
+      rotate: 3deg;
+      animation-delay: 0.85s;
+    }
+
+    /* Tablet */
+    @media (min-width: 580px) {
+      .hero-photo { --photo-op: 0.78; }
+      .hero-photo:nth-child(1) { width: 160px; left: 1%;  top: 8%;  }
+      .hero-photo:nth-child(2) { width: 145px; left: -1%; top: 38%; }
+      .hero-photo:nth-child(3) { width: 150px; left: 2%;  bottom: 8%; }
+      .hero-photo:nth-child(4) { width: 160px; right: 1%; top: 8%;  }
+      .hero-photo:nth-child(5) { width: 145px; right: -1%;top: 38%; }
+      .hero-photo:nth-child(6) { width: 150px; right: 2%; bottom: 8%; }
+    }
+
+    /* Desktop */
+    @media (min-width: 1024px) {
+      .hero-photo { --photo-op: 0.85; }
+      .hero-photo:nth-child(1) { width: 190px; left: 4%;  top: 6%;  }
+      .hero-photo:nth-child(2) { width: 175px; left: 2%;  top: 36%; }
+      .hero-photo:nth-child(3) { width: 180px; left: 5%;  bottom: 6%; }
+      .hero-photo:nth-child(4) { width: 190px; right: 4%; top: 6%;  }
+      .hero-photo:nth-child(5) { width: 175px; right: 2%; top: 36%; }
+      .hero-photo:nth-child(6) { width: 180px; right: 5%; bottom: 6%; }
+    }
+
+    /* Hero text above photos */
+    .hero > *:not(.hero-photos) {
+      position: relative;
+      z-index: 2;
+    }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(8px); }
@@ -948,6 +1051,16 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
+    <!-- Photo collage behind text -->
+    <div class="hero-photos">
+      <div class="hero-photo"><img src="images/punks-hero1.png" alt=""></div>
+      <div class="hero-photo"><img src="images/megwin-hero1.png" alt=""></div>
+      <div class="hero-photo"><img src="images/pan-hero1.png" alt=""></div>
+      <div class="hero-photo"><img src="images/punks-hero2.png" alt=""></div>
+      <div class="hero-photo"><img src="images/megwin-hero2.png" alt=""></div>
+      <div class="hero-photo"><img src="images/pan-hero2.png" alt=""></div>
+    </div>
+
     <div class="stream-ui">
       <div class="stream-live"><span class="dot"></span> LIVE</div>
       <div class="stream-viewers">&#x1f441; <span id="viewer-count">9,823</span></div>
@@ -1167,7 +1280,7 @@
         </div>
       </div>
 
-      <p class="req-note">※ 既にプロダクションに所属している方でも辞めずに参加可能です。<br>※ 2次審査は都内で対面にて行います。<br>※ 交通費等については個別にご相談ください。</p>
+      <p class="req-note">※ 既にプロダクションに所属している方でも辞めずに参加可能です。</p>
     </div>
   </section>
 
