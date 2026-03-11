@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約・プライバシーポリシー | ギミックストリーム</title>
+  <meta name="description" content="GimmickStream第1回オーディション規約およびプライバシーポリシー。">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQEJWBE938"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LQEJWBE938');
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --pink: #FF7043;
+      --pink-light: #FFAB91;
+      --pink-pale: #FFF3E0;
+      --lavender: #C8A8F9;
+      --lavender-light: #EDE3FF;
+      --mint: #7FDFD4;
+      --mint-light: #D4F5EF;
+      --yellow: #FFE066;
+      --yellow-light: #FFF8D6;
+      --bg: #FFFAF7;
+      --card: #FFFFFF;
+      --text: #3D2B4E;
+      --text-muted: #8E7AA0;
+      --shadow: rgba(200, 168, 249, 0.15);
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.9;
+    }
+
+    /* ===== Header ===== */
+    .page-header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(255, 112, 67, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(200, 168, 249, 0.08) 0%, transparent 50%);
+    }
+
+    .page-header .logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .page-header .logo a {
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header h1 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .page-header .meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== Content ===== */
+    .terms-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .terms-section {
+      margin-bottom: 48px;
+    }
+
+    .terms-section-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .terms-section-meta {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .terms-intro {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 32px;
+      padding: 20px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .terms-intro strong {
+      color: var(--text);
+    }
+
+    h2.terms-heading {
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin: 32px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--lavender-light);
+      color: var(--text);
+    }
+
+    .terms-body {
+      font-size: 0.85rem;
+      line-height: 2;
+      color: var(--text);
+    }
+
+    .terms-body p {
+      margin-bottom: 12px;
+    }
+
+    .terms-body ul {
+      margin: 8px 0 16px 20px;
+      padding: 0;
+    }
+
+    .terms-body ul li {
+      margin-bottom: 6px;
+      line-height: 1.8;
+    }
+
+    .terms-body ul li::marker {
+      color: var(--lavender);
+    }
+
+    /* ===== Divider ===== */
+    .terms-divider {
+      border: none;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pink-light), var(--lavender), var(--mint));
+      border-radius: 2px;
+      margin: 56px 0;
+    }
+
+    /* ===== Nav Tabs ===== */
+    .terms-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .terms-nav a {
+      display: inline-block;
+      padding: 10px 24px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.2s;
+    }
+
+    .terms-nav a.active {
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255, 112, 67, 0.2);
+    }
+
+    .terms-nav a:not(.active) {
+      background: var(--card);
+      color: var(--text);
+      border: 1.5px solid var(--lavender);
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .terms-nav a:not(.active):hover {
+      background: var(--lavender-light);
+    }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 40px;
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--lavender);
+      text-decoration: none;
+      border: 2px solid var(--lavender);
+      border-radius: 50px;
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      background: var(--lavender);
+      color: #fff;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      background: var(--lavender-light);
+    }
+
+    footer .footer-logo {
+      font-weight: 900;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (min-width: 768px) {
+      .page-header h1 { font-size: 1.8rem; }
+      .terms-content { padding: 60px 40px 100px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <div class="page-header">
+    <div class="logo"><a href="index.html">GIMMICK STREAM</a></div>
+    <h1>利用規約・プライバシーポリシー</h1>
+  </div>
+
+  <!-- ===== CONTENT ===== -->
+  <div class="terms-content">
+
+    <div class="terms-nav">
+      <a href="#terms" class="active">オーディション規約</a>
+      <a href="#privacy">プライバシーポリシー</a>
+    </div>
+
+    <!-- ==================== オーディション規約 ==================== -->
+    <div class="terms-section" id="terms">
+      <div class="terms-section-title">GimmickStream 第1回オーディション規約</div>
+      <div class="terms-section-meta">制定日：2026年2月23日／最終更新日：2026年3月11日</div>
+
+      <div class="terms-intro">
+        主催：GimmickStream（以下「主催者」といいます）<br><br>
+        本規約は、主催者が実施する「GimmickStream第1回オーディション」（以下「本オーディション」）への応募条件、審査、合格特典、権利関係、注意事項等を定めるものです。応募者は、本規約に同意のうえ応募するものとします。
+      </div>
+
+      <div class="terms-body">
+
+        <h2 class="terms-heading">1. 募集概要</h2>
+        <p>本オーディションは、配信活動／ライバー活動／タレント活動に意欲のある応募者を対象に、主催者が審査のうえ合格者を選出するものです。</p>
+        <ul>
+          <li>合格者数は最大2名とします。審査の結果、主催者の判断により該当者なし（合格者0名）とする場合があります。</li>
+          <li>応募は無料です。ただし、応募・面談・最終審査参加等に要する通信費、交通費等は原則として応募者の負担とします（第8条参照）。</li>
+        </ul>
+
+        <h2 class="terms-heading">2. 応募条件</h2>
+        <p>以下の条件をすべて満たす方を応募対象とします。</p>
+        <ul>
+          <li>年齢：不問（ただし未成年は第3条の条件を満たすこと）</li>
+          <li>日本語での連絡・面談・審査参加が可能であること</li>
+          <li>応募フォームに、真実かつ正確な情報を入力できること</li>
+          <li>反社会的勢力等（第11条）に該当しないこと</li>
+        </ul>
+
+        <h2 class="terms-heading">3. 未成年者の応募・参加</h2>
+        <ul>
+          <li>応募者が未成年の場合、応募時点または選考過程において、主催者が求めた場合には親権者等の法定代理人の同意を提出するものとします。</li>
+          <li>未成年の合格者が主催者と契約（所属契約、業務委託契約、出演契約等）を締結する場合、法定代理人の同意・署名等が必要となる場合があります。</li>
+          <li>法定代理人の同意が確認できない場合、主催者は応募または合格を取り消すことがあります。</li>
+        </ul>
+
+        <h2 class="terms-heading">4. 応募方法</h2>
+        <ul>
+          <li>主催者が指定する応募フォーム（Googleフォーム等）から応募してください。</li>
+          <li>応募時に提出された情報・資料（プロフィール、配信URL、画像、動画、メッセージ等を含みます。以下「応募資料」）は返却しません。</li>
+          <li>応募締切：2026年4月30日（主催者判断で延長・変更する場合があります）</li>
+        </ul>
+
+        <h2 class="terms-heading">5. 選考方法・スケジュール</h2>
+        <p>選考は、例として以下の流れで実施します（主催者の都合により変更される場合があります）。</p>
+        <ul>
+          <li>①書類審査（応募フォーム内容・配信活動状況等）</li>
+          <li>②ビデオチャット審査（オンライン面談）</li>
+          <li>③最終審査（都内での公開ライブ等）</li>
+          <li>審査基準・審査内容・評価理由は開示しません。</li>
+          <li>選考結果は、主催者が指定する方法（メール、DM等）で連絡します。応募者の事情による未達・見落とし等について主催者は責任を負いません。</li>
+          <li>連絡後、主催者が定める期限までに返信がない場合、辞退とみなす場合があります。</li>
+        </ul>
+
+        <h2 class="terms-heading">6. 合格特典</h2>
+        <p>合格者には、主催者よりオリジナルギミックの制作を提供します。</p>
+
+        <h2 class="terms-heading">7. 合格後の契約</h2>
+        <p>合格者と主催者は、合格通知後、双方協議のうえ別途契約（所属契約、業務委託契約、出演契約等）を締結するものとします。</p>
+        <ul>
+          <li>活動内容、活動期間、報酬・収益分配、その他の条件については、個別契約において定めます。</li>
+          <li>合格の通知をもって、直ちに契約関係が成立するものではありません。</li>
+          <li>個別契約の締結に至らなかった場合、合格者・主催者のいずれも、相手方に対して損害賠償等の請求を行わないものとします。</li>
+        </ul>
+
+        <h2 class="terms-heading">8. 公開ライブ・撮影・配信・二次利用</h2>
+        <ul>
+          <li>最終審査（公開ライブ等）および審査関連イベントでは、主催者または主催者が委託する第三者が、写真・動画撮影、録音、配信、記録を行う場合があります。</li>
+        </ul>
+        <p>応募者（合格者を含む）は、主催者が以下の目的で、応募者の肖像、声、パフォーマンス、発言等を、無償で利用することを許諾します。</p>
+        <ul>
+          <li>本オーディションおよび関連企画の運営・広報</li>
+          <li>主催者のWebサイト、SNS、動画配信サイト等への掲載</li>
+          <li>アーカイブ配信、ダイジェスト編集等の二次利用</li>
+          <li>上記利用の範囲・期間は、主催者が合理的に必要な範囲で定めます。応募者は、編集・切り抜き等について異議を述べないものとします。</li>
+          <li>応募者の都合により撮影・配信等への同意が得られない場合、審査参加をお断りする場合があります。</li>
+          <li>なお、面談・審査時における応募者による録音・録画は一切禁止とします。</li>
+        </ul>
+
+        <h2 class="terms-heading">9. 費用負担（交通費・宿泊費等）</h2>
+        <ul>
+          <li>応募・面談・最終審査等に要する通信費、交通費、宿泊費、飲食費、機材費等は、原則として応募者の負担です。</li>
+          <li>ただし、主催者が「個別相談のうえ支援する」と判断した場合に限り、主催者が一部を負担することがあります（負担の有無、対象、上限、精算方法は都度主催者が決定します）。</li>
+          <li>主催者が負担を約束していない費用について、事後に支払いを請求されても応じられません。</li>
+        </ul>
+
+        <h2 class="terms-heading">10. 辞退・途中離脱</h2>
+        <ul>
+          <li>応募者は、選考の各段階において辞退することができます。辞退を希望する場合は、速やかに主催者が指定する問い合わせ窓口（第17条）まで連絡してください。</li>
+          <li>最終審査（公開ライブ等）への参加が確定した後に辞退する場合は、原則として審査日の7日前までに連絡するものとします。</li>
+          <li>正当な理由なく最終審査を無断で欠席した場合、主催者は当該応募者の今後の応募を制限する場合があります。</li>
+          <li>辞退の連絡がないまま主催者からの連絡に対し14日以上応答がない場合、辞退したものとみなします。</li>
+        </ul>
+
+        <h2 class="terms-heading">11. 禁止事項・失格事由</h2>
+        <p>応募者が以下に該当すると主催者が判断した場合、選考の中止、失格、合格取消、今後の応募禁止等の措置を取ることがあります。</p>
+        <ul>
+          <li>応募内容に虚偽、誤記、なりすまし、第三者の権利侵害がある場合</li>
+          <li>主催者・他の応募者・第三者への誹謗中傷、迷惑行為、脅迫、業務妨害がある場合</li>
+          <li>法令または公序良俗に反する行為がある場合</li>
+          <li>反社会的勢力等に該当、または関係がある場合</li>
+          <li>その他、主催者が不適切と判断する行為がある場合</li>
+        </ul>
+
+        <h2 class="terms-heading">12. 応募資料の権利・取り扱い</h2>
+        <ul>
+          <li>応募者は、応募資料について、第三者の著作権・肖像権・プライバシー権等を侵害しないことを保証します。</li>
+          <li>応募資料の著作権等は原則として応募者に帰属します。ただし主催者は、第8条の目的で応募資料の全部または一部を利用する場合があります（必要な範囲で編集を含む）。</li>
+          <li>応募者が第三者の権利侵害等により紛争を生じさせた場合、応募者の責任と費用で解決するものとし、主催者に損害が発生した場合は賠償するものとします。</li>
+        </ul>
+
+        <h2 class="terms-heading">13. 反社会的勢力の排除</h2>
+        <p>応募者は、自身が暴力団、暴力団員、暴力団関係企業、総会屋等の反社会的勢力に該当せず、また将来にわたっても該当しないことを表明し保証します。該当が判明した場合、主催者は通知なく応募・合格を取り消すことができます。</p>
+
+        <h2 class="terms-heading">14. 免責・中止・変更</h2>
+        <ul>
+          <li>主催者は、やむを得ない事情（天災、感染症拡大、会場都合、通信障害、運営上の都合等）により、本オーディションの内容、スケジュール、審査方法、実施場所等を変更または中止することがあります。</li>
+          <li>変更・中止により応募者に損害が生じた場合でも、主催者は主催者に故意または重過失がある場合を除き責任を負いません。</li>
+          <li>応募者の通信環境、機材不具合等により審査参加ができない場合、主催者は責任を負いません。</li>
+        </ul>
+
+        <h2 class="terms-heading">15. 規約の変更</h2>
+        <p>主催者は、必要に応じて本規約を変更できるものとします。変更後の規約は、主催者Webサイト等での掲示をもって効力を生じます。</p>
+
+        <h2 class="terms-heading">16. 準拠法・管轄</h2>
+        <p>本規約は日本法に準拠します。本オーディションに関連して紛争が生じた場合、東京地方裁判所立川支部を第一審の専属的合意管轄裁判所とします。</p>
+
+        <h2 class="terms-heading">17. お問い合わせ窓口</h2>
+        <p>主催者：GimmickStream<br>
+        お問い合わせフォーム：<a href="https://forms.gle/N19Ze2mk5dv7f98H6" target="_blank" style="color: var(--lavender); font-weight: 700;">こちら</a></p>
+
+      </div>
+    </div>
+
+    <!-- ==================== Divider ==================== -->
+    <hr class="terms-divider" id="privacy">
+
+    <!-- ==================== プライバシーポリシー ==================== -->
+    <div class="terms-section">
+      <div class="terms-section-title">プライバシーポリシー</div>
+      <div class="terms-section-meta">制定日：2026年2月23日／最終更新日：2026年3月11日</div>
+
+      <div class="terms-intro">
+        GimmickStream（以下「当方」といいます）は、当方が運営するWebサイトおよびオーディション（以下「本サービス」）における個人情報の取り扱いについて、以下のとおり定めます。
+      </div>
+
+      <div class="terms-body">
+
+        <h2 class="terms-heading">1. 取得する情報</h2>
+        <p>当方は、応募フォーム等を通じて、以下の情報を取得する場合があります。</p>
+        <ul>
+          <li>氏名（ハンドルネームを含む）</li>
+          <li>年齢</li>
+          <li>都道府県</li>
+          <li>メールアドレス、SNSアカウント等の連絡先</li>
+          <li>配信チャンネルURL、活動実績、プロフィール情報</li>
+          <li>面談・審査時の発言内容、写真等（主催者が撮影・記録を行う場合）</li>
+          <li>お問い合わせ内容</li>
+        </ul>
+
+        <h2 class="terms-heading">2. 利用目的</h2>
+        <p>当方は、取得した情報を以下の目的で利用します。</p>
+        <ul>
+          <li>オーディションの審査、面談、最終審査の運営</li>
+          <li>応募者への連絡、問い合わせ対応</li>
+          <li>合格者への契約手続、活動支援（支援金の精算等を含む）</li>
+          <li>不正応募、迷惑行為等の防止・対応</li>
+          <li>本サービスの改善、運営のための分析（アクセス解析を実施する場合）</li>
+          <li>法令に基づく対応</li>
+        </ul>
+
+        <h2 class="terms-heading">3. 第三者提供</h2>
+        <p>当方は、法令に基づく場合を除き、本人の同意なく個人情報を第三者に提供しません。</p>
+
+        <h2 class="terms-heading">4. 委託</h2>
+        <p>当方は、業務運営上必要な範囲で、個人情報の取り扱いを外部事業者に委託する場合があります（例：応募フォーム、メール送信、クラウドストレージ等）。委託先に対しては、適切な監督を行います。</p>
+        <ul>
+          <li>応募フォーム：Googleフォーム等（Google LLCのサービス）を利用する場合があります。</li>
+          <li>データ保管：クラウドサービス上に保管する場合があります。</li>
+        </ul>
+
+        <h2 class="terms-heading">5. 安全管理措置</h2>
+        <p>当方は、個人情報の漏えい、滅失、毀損、不正アクセス等を防止するため、アクセス権限の管理、保管先の制限、委託先の選定等、合理的な安全管理措置を講じます。</p>
+
+        <h2 class="terms-heading">6. 保管期間</h2>
+        <p>当方は、利用目的の達成に必要な期間、個人情報を保管します。原則として、選考終了後12か月を目安に、合理的な範囲で削除または匿名化します。</p>
+        <p>ただし、法令上保存が必要なもの、紛争対応のために必要なものはこの限りではありません。</p>
+
+        <h2 class="terms-heading">7. 面談・審査時の録音・録画について</h2>
+        <p>面談・審査時における応募者による録音・録画は一切禁止とします。主催者が審査の記録として撮影・録音を行う場合がありますが、不合格となった応募者に関する動画・音声データは、選考終了後12か月以内に削除します。</p>
+
+        <h2 class="terms-heading">8. 開示・訂正・削除等の請求</h2>
+        <p>本人から、当方が保有する個人情報の開示、訂正、利用停止、削除等の請求があった場合、本人確認のうえ、法令に従い適切に対応します。</p>
+
+        <h2 class="terms-heading">9. Cookie・アクセス解析（利用している場合のみ）</h2>
+        <p>当サイトがCookieやアクセス解析ツールを利用する場合、ユーザーの利用状況の把握やサービス改善のためにCookie等を使用することがあります。ブラウザ設定によりCookieを無効化できますが、一部機能が利用できない場合があります。</p>
+
+        <h2 class="terms-heading">10. プライバシーポリシーの変更</h2>
+        <p>当方は、法令の変更や運営上の必要に応じて、本ポリシーを変更することがあります。変更後の内容は当サイトへの掲示等により周知します。</p>
+
+        <h2 class="terms-heading">11. お問い合わせ窓口</h2>
+        <p>個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。</p>
+        <p>事業者名（主催者名）：GimmickStream<br>
+        お問い合わせフォーム：<a href="https://forms.gle/N19Ze2mk5dv7f98H6" target="_blank" style="color: var(--lavender); font-weight: 700;">こちら</a></p>
+
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="index.html" class="back-link">&larr; トップに戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-logo">GIMMICK STREAM</div>
+    <p>&copy; 2026 ギミックストリーム All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Nav tab active state
+    document.querySelectorAll('.terms-nav a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.terms-nav a').forEach(function(l) { l.classList.remove('active'); });
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
