@@ -97,57 +97,6 @@
         radial-gradient(ellipse at 50% 50%, rgba(127, 223, 212, 0.08) 0%, transparent 50%);
     }
 
-    .stream-ui {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      right: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      pointer-events: none;
-      animation: fadeIn 1s ease-out 0.5s both;
-    }
-
-    .stream-live {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 59, 48, 0.9);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-      letter-spacing: 0.1em;
-    }
-
-    .stream-live .dot {
-      width: 6px;
-      height: 6px;
-      background: #fff;
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .stream-viewers {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(0, 0, 0, 0.4);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-    }
-
     .hero-badge {
       display: inline-block;
       padding: 8px 24px;
@@ -271,65 +220,6 @@
       color: var(--pink);
       font-weight: 700;
       animation: fadeInUp 0.8s ease-out 0.45s both;
-    }
-
-    /* Floating chat bubbles */
-    .chat-bubbles {
-      position: absolute;
-      bottom: 80px;
-      right: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      animation: fadeIn 1s ease-out 1s both;
-      pointer-events: none;
-    }
-
-    .chat-bubble {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(8px);
-      border-radius: 16px 16px 4px 16px;
-      padding: 8px 14px;
-      font-size: 0.7rem;
-      color: var(--text);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-      animation: slideInRight 0.5s ease-out both;
-      max-width: 160px;
-    }
-
-    .chat-bubble:nth-child(1) { animation-delay: 1.2s; }
-    .chat-bubble:nth-child(2) { animation-delay: 1.8s; border-radius: 16px 16px 16px 4px; }
-    .chat-bubble:nth-child(3) { animation-delay: 2.4s; }
-
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    /* Floating hearts */
-    .float-hearts {
-      position: absolute;
-      bottom: 120px;
-      left: 20px;
-      pointer-events: none;
-    }
-
-    .float-heart {
-      position: absolute;
-      font-size: 1.2rem;
-      animation: floatHeart 3s ease-out infinite;
-      opacity: 0;
-    }
-
-    .float-heart:nth-child(1) { animation-delay: 0s; left: 0; }
-    .float-heart:nth-child(2) { animation-delay: 0.8s; left: 20px; font-size: 0.9rem; }
-    .float-heart:nth-child(3) { animation-delay: 1.6s; left: 8px; font-size: 1rem; }
-    .float-heart:nth-child(4) { animation-delay: 2.2s; left: 30px; font-size: 0.8rem; }
-
-    @keyframes floatHeart {
-      0% { opacity: 0; transform: translateY(0) scale(0.5); }
-      20% { opacity: 1; transform: translateY(-20px) scale(1); }
-      100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
     }
 
     .scroll-hint {
@@ -1077,24 +967,6 @@
       <div class="hero-photo"><img src="images/pan-hero2.png" alt=""></div>
     </div>
 
-    <div class="stream-ui">
-      <div class="stream-live"><span class="dot"></span> LIVE</div>
-      <div class="stream-viewers">&#x1f441; <span id="viewer-count">9,823</span></div>
-    </div>
-
-    <div class="float-hearts">
-      <div class="float-heart">&#x26a1;</div>
-      <div class="float-heart">&#x1f525;</div>
-      <div class="float-heart">&#x2b50;</div>
-      <div class="float-heart">&#x2728;</div>
-    </div>
-
-    <div class="chat-bubbles">
-      <div class="chat-bubble">&#x1f389; オーディションだ！</div>
-      <div class="chat-bubble">&#x1f525; 応募したい！</div>
-      <div class="chat-bubble">&#x1f496; 2名限定！？</div>
-    </div>
-
     <div class="hero-badge">&#x2728; AUDITION ENTRY START &#x2728;</div>
     <div class="hero-logo"><span class="accent">GIMMICK STREAM</span><span class="sub">ぎみっくすとりーむ</span></div>
     <div class="hero-audition-num">&#x2014; 第1回オーディション &#x2014;</div>
@@ -1342,17 +1214,6 @@
         s.style.animationDelay = (Math.random() * 5) + 's';
         c.appendChild(s);
       }
-    })();
-
-    // Viewer count animation
-    (function() {
-      var el = document.getElementById('viewer-count');
-      var base = 9823;
-      setInterval(function() {
-        base += Math.floor(Math.random() * 7) - 2;
-        if (base < 9800) base = 9800;
-        el.textContent = base.toLocaleString();
-      }, 2000);
     })();
 
     // Scroll Reveal
